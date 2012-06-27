@@ -161,6 +161,73 @@ module OSXUtils
     end
   end
 
+
+  def sync_library(libs)
+
+    home_lib = File.expand_path libs[:home]
+    cloud_lib = File.expand_path libs[:cloud]
+
+    # Each directory under ~/Dropbox/Library
+    Dir.foreach cloud_lib do |app|
+      next if app == '.' or app == '..'
+      next unless File.directory? "#{cloud_lib}/#{app}"
+
+      # Symlink the Fonts directory
+      if app == 'Fonts'
+        command = "ln -sfn \"#{cloud_lib}/#{app}\" \"#{home_lib}/#{app}\""
+        puts command
+        system command
+        next
+      end
+
+      # Each directory under ~/Dropbox/Library/some-app-name
+      Dir.foreach "#{cloud_lib}/#{app}" do |dir|
+        next if dir == '.' or dir == '..'
+        next unless File.directory? "#{cloud_lib}/#{app}/#{dir}"
+
+        # Symlink the Application Support directory
+        if dir == 'Application Support'
+          command = "ln -sfn \"#{cloud_lib}/#{app}/#{dir}\" \"#{home_lib}/Application Support/#{app}\""
+          puts command
+          system command
+
+        # Symlink all files inside Preferences
+        elsif dir == 'Preferences'
+          Dir.glob "#{cloud_lib}/#{app}/#{dir}/*" do |file|
+            file = File.basename file
+            next if File.directory? "#{cloud_lib}/#{app}/#{dir}/#{file}"
+
+            command = "ln -sfn \"#{cloud_lib}/#{app}/#{dir}/#{file}\" \"#{home_lib}/Preferences/#{file}\""
+            puts command
+            system command
+
+          end
+        end
+      end
+    end
+
+  end
+
+
+  # Set a system preference
+  def set(description, *commands)
+    if commands.size > 0
+      puts "\n[#{green(description)}]"
+      commands.each do |command|
+        puts yellow(' => ') + gray(command)
+        system command 
+      end
+    end
+  end
+
+
+  # Ask for permission
+  def ask(prompt)
+    print yellow("#{prompt} [y/n]"), ' '
+    $stdin.gets.strip.match /^y/i
+  end
+
+
   # Pretty colours
   def red(text)    "\033[31m#{text}\033[m" end
   def green(text)  "\033[32m#{text}\033[m" end
