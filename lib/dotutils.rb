@@ -34,7 +34,7 @@ module DotUtils
   def symlink(files)
 
     if files.class.to_s == 'String'
-      @home = File.expand_path "~/test"
+      @home = File.expand_path "~"
       @base = "#{File.expand_path(files).split('/').last}/"
 
       puts "\n[#{green('Creating symbolic links')}]"
