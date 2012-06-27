@@ -141,7 +141,7 @@ module OSXUtils
     else
       open = (options[:open]) ? '-o ' : ''
       source = parse_source options[:source]
-      system "installion #{open}-f \"#{options[:source]}\""
+      system "installion #{open}-f \"#{source}\""
       yield if block_given?
     end
   end
