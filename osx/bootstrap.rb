@@ -10,11 +10,9 @@ system "sudo installer -pkg /tmp/git.pkg -target /"
 system "source /etc/profile"
 
 # Install dotfiles
-system "git clone git://github.com/suderman/dotfiles.git ~/.dotfiles"
-system "cd ~/.dotfiles && ./install"
+system "git clone https://suderman@github.com/suderman/dotfiles.git ~/.dotfiles"
+system "cd ~/.dotfiles && ./install.rb"
 system "source ~/.zshrc"
 
 # OS X settings, library syncing and apps
-system "~/.dotfiles/osx/osx.sh"
-system "~/.dotfiles/osx/library.rb"
-system "~/.dotfiles/osx/apps.rb"
+system "~/.osx/install.rb"
