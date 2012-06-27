@@ -1,0 +1,35 @@
+general:
+  domain: localhost
+
+database:
+  db_type: mysql
+  db_server: localhost
+  db_server_username: root
+  db_server_password: 
+
+seed:
+  cms_auth:
+    - real_name: Darron Froese
+      email: darron@nonfiction.ca
+      username: darron
+      password: bdba8b93ffc8c167440b5f0109aef9b7
+      user_level: 3
+      status: 1
+    - real_name: Lena Mitranic
+      email: lena@nonfiction.ca
+      username: lena
+      password: 7365454bd0d74f59c1d47fe94b6554c6
+      user_level: 3
+      status: 1
+    - real_name: Jon Suderman
+      email: jon@nonfiction.ca
+      username: jon
+      password: cbdb7e2b1ed566ceb796af2df07205a3
+      user_level: 3
+      status: 1
+    - real_name: Andy VanEe
+      email: andy@nonfiction.ca
+      username: andy
+      password: 98373f5e1cb214af734b1055d6293a77
+      user_level: 3
+      status: 1

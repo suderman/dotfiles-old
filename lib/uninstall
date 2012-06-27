@@ -1,0 +1,47 @@
+#!/bin/sh
+echo "Uninstalling dotfiles"
+
+# Blow away .oh-my-zsh
+while true; do
+  read -p "Destroy the .oh-my-zsh? (y/n) " yn
+  case $yn in
+    [Yy]* ) rm -rf "$HOME/.oh-my-zsh"; echo "Destroyed .oh-my-zsh directory"; break;;
+  esac
+done
+
+rm -f "$HOME/.zshrc"
+echo "Unlinked zshrc"
+
+rm -f "$HOME/.chef"
+echo "Unlinked chef"
+
+rm -f "$HOME/.powconfig"
+rm -f "$HOME/.gemrc"
+rm -f "$HOME/.autotest"
+rm -f "$HOME/.irbrc"
+rm -f "$HOME/.bridge_keys"
+echo "Unlinked powconfig, gemrc, autotest, irbrc, bridge_keys"
+
+rm -f "$HOME/.gitconfig"
+rm -f "$HOME/.gitignore"
+rm -f "$HOME/.hgrc"
+echo "Unlinked gitconfig, gitignore, hgrc"
+
+rm -f "$HOME/.inputrc"
+rm -f "$HOME/.nanorc"
+echo "Unlinked inputrc, nanorc"
+
+# Properly link ssh config inside .ssh directory
+rm -f "$HOME/.ssh/config"
+rm -f "$HOME/.ssh/id_rsa"
+rm -f "$HOME/.ssh/id_rsa.pub"
+echo "Unlinked ssh"
+
+# Blow away .vim
+while true; do
+  read -p "Destroy the .vim directory? (y/n) " yn
+  case $yn in
+    [Yy]* ) rm -rf "$HOME/.vim"; echo "Destroyed .vim directory"; break;;
+    * ) echo "Done"; exit;;
+  esac
+done

@@ -1,0 +1,22 @@
+# ADD LOCAL CONFIGURATION HERE
+[include]
+  path = ~/Dropbox/dotfiles/gitconfig
+
+# DO NOT EDIT BELOW THIS LINE
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[core]
+	excludesfile = ~/.gitignore
+	quotepath = false
+[alias]
+  c = commit -m
+  a = add
+  di = diff
+  dic = diff --cached
+  pl = pull
+  ps = push
+  plre = pull --rebase
+  st = status
+  out = log origin..HEAD

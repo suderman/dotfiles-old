@@ -1,0 +1,37 @@
+# Sometimes scripts call bash instead of my beloved zsh
+# ...so I have to maintain a little bashrc too I guess
+
+# Save original path for the end
+export ORIGINAL_PATH=$PATH
+
+# local bin
+export PATH=$PATH:/usr/local/bin
+
+# node path
+export NODE_PATH="/usr/local/lib/node"
+export PATH=$PATH:/usr/local/share/npm/bin
+
+# MacPorts
+export PATH=$PATH:/opt/local/bin:/opt/local/sbin
+
+# Append original path
+export PATH=$PATH:$ORIGINAL_PATH
+
+# rbenv
+export PATH=$HOME/.rbenv/bin:$PATH
+if command -v "rbenv" &>/dev/null
+then
+  export PREFIX=$HOME
+  eval "$(rbenv init -)"
+  rbenv global 1.9.2-p290
+fi
+
+# home bin
+export PATH=$HOME/bin:$PATH
+
+# relative bin
+export PATH=bin:$PATH
+
+# use vim as an editor
+export EDITOR=vim
+export VISUAL=vim

@@ -1,0 +1,7 @@
+# Edit commands in Vi mode
+set editing-mode vi
+set keymap vi
+
+# TAB: menu-complete
+# set completion-ignore-case On
+# set mark-symlinked-directories On

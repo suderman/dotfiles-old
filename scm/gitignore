@@ -1,0 +1,11 @@
+.*.swp
+tags
+.swo
+*.scratch.*
+.bundle
+db/*.sqlite3
+log/*.log
+tmp/
+public/system
+.DS_Store
+vendor/bundle
