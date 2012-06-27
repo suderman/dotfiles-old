@@ -1,6 +1,6 @@
 # ADD LOCAL CONFIGURATION HERE
 [include]
-  path = ~/Dropbox/dotfiles/gitconfig
+  path = ~/.secure/scm/gitconfig
 
 # DO NOT EDIT BELOW THIS LINE
 [color]
