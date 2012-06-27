@@ -10,7 +10,9 @@ git '~/.oh-my-zsh', :url => 'git://github.com/robbyrussell/oh-my-zsh.git' do
 end
 
 # Install dotfiles-secure 
-git 'secure', :url => 'git@github.com:suderman/dotfiles-secure.git'
+git 'secure', :url => 'git@github.com:suderman/dotfiles-secure.git' do
+  `chmod go-rw secure/ssh/*`
+end
 
 # Symlink the dotfiles
 symlink "symlinks"
