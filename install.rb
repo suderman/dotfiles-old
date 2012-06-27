@@ -5,13 +5,13 @@ require './lib/dotutils'
 include DotUtils
 
 # Install oh-my-zsh
-git '~/.oh-my-zsh', :url => 'git://github.com/robbyrussell/oh-my-zsh.git' do
-  `cd ~/.oh-my-zsh && rm -rf .gitignore custom`
+git '~/.oh-my-zsh', :repo => 'robbyrussell/oh-my-zsh' do |path|
+  `cd #{path} && rm -rf .gitignore custom`
 end
 
 # Install dotfiles-secure 
-git 'secure', :url => 'git@github.com:suderman/dotfiles-secure.git' do
-  `chmod go-rw secure/ssh/*`
+git 'secure', :repo => 'suderman/dotfiles-secure' do |path|
+  `chmod go-rw #{path}/ssh/*`
 end
 
 # Symlink the dotfiles

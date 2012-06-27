@@ -22,11 +22,29 @@ module DotUtils
 
     if git? path
       puts "...already installed!"
-    else
-      system "git clone #{options[:url]} #{path}"
-      yield if block_given?
-    end
 
+    else
+      repo = options[:repo]
+      case repo
+
+      # Github repo
+      when /^[a-zA-Z0-9_\-]*\/[a-zA-Z0-9_\-]*$/i
+
+        output = `git clone git@github.com:#{repo}.git #{path} 2>&1`
+        if output.match(/permission denied/i)
+          user = repo.split('/').first
+          output = `git clone https://#{user}@github.com/#{repo}.git #{path} 2>&1`
+        end
+
+      # Anything else
+      else
+        output = `git clone #{repo} #{path} 2>&1`
+      end
+
+      puts gray(output)
+      yield(path, repo) if block_given?
+
+    end
   end
 
 
