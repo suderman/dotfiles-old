@@ -54,8 +54,9 @@ module DotUtils
       when :file
         points_to = `head -n 1 "#{file}"`.strip
         source = File.expand_path "#{File.dirname(__FILE__)}/../#{points_to}"
-        ln_sf source, dotname(file)
-        puts gray(source) + blue(" => ") + gray(dotname(file))
+        target = dotname(file)
+        ln_sf source, target unless File.directory? source and File.exists? target
+        puts gray(source) + blue(" => ") + gray(target)
       end
 
     end
