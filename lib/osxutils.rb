@@ -88,11 +88,11 @@ module OSXUtils
   end
 
 
-  # Has this node package been installed?
-  def installed?(name)
+  # Has this app been installed?
+  def app?(name)
 
-    unless command? 'installion'
-      puts red("[error] installion is not installed!") 
+    unless command? 'app'
+      puts red("[error] app is not installed!") 
       return false
     end
 
@@ -125,26 +125,39 @@ module OSXUtils
     false
   end
 
-  # Install a new app with installion 
-  def install(name, options={})
+  # Install a new app with app 
+  def app(name, options={})
 
     puts "\n[#{green(name)}]"
 
-    unless command? 'installion'
-      puts red("[error] installion is not installed!") 
-      return false
-    end
-
-    if installed? name
+    if app? name
       puts "...already installed!"
 
     else
-      open = (options[:open]) ? '-o ' : ''
-      source = parse_source options[:source]
-      system "installion #{open}-f \"#{source}\""
+
+      # Install an app with app
+      if options[:src]
+
+        unless command? 'app'
+          puts red("[error] app is not installed!") 
+          return false
+        end
+
+        open = (options[:open]) ? '-o ' : ''
+        source = parse options[:src]
+        system "app #{open}-f \"#{source}\""
+
+      # Open an URL (website or App Store)
+      elsif options[:url]
+        url = parse options[:url]
+        system "open #{url}"
+        say 'Click "Install" on the App Store' if url.match /^macappstore/i
+      end
+
       yield if block_given?
     end
   end
+
 
   def find?(path, name)
     path = File.expand_path path
@@ -152,10 +165,18 @@ module OSXUtils
     true unless results.empty?
   end
 
-  def parse_source(source)
-    case source
-    when /^[a-zA-Z0-9_]*\/[a-zA-Z0-9_\-\s]*\.[a-zA-Z0-9_]*/i
+
+  def parse(source)
+    case url
+
+    # App Store => sparrow/id417250177 
+    when /^[a-zA-Z0-9_\-]*\/id[0-9]*$/i
+      "macappstore://itunes.apple.com/ca/app/#{source}"
+
+    # Dropbox => zmlm47fmbqcnwl7/GCC-10.7-v2.pkg
+    when /^[a-zA-Z0-9_]*\/[a-zA-Z0-9_\-\s]*\.[a-zA-Z0-9_]*$/i
       "https://dl.dropbox.com/s/#{source}"
+
     else
       source
     end
@@ -225,6 +246,13 @@ module OSXUtils
   def ask(prompt)
     print yellow("#{prompt} [y/n]"), ' '
     $stdin.gets.strip.match /^y/i
+  end
+
+
+  # Stop and say something
+  def say(message)
+    print yellow("#{message} [OK?]"), ' '
+    $stdin.gets.strip
   end
 
 

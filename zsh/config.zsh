@@ -61,5 +61,5 @@ stty -ixon
 # lolcommits --enable
 export LOLCOMMITS_TRANZLATE=1
 
-# installion
-export INSTALLION_SOURCE=~/Dropbox/Installers
+# app
+export APP_SOURCE=~/Dropbox/Installers
