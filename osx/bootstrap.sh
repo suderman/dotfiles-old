@@ -1,17 +1,22 @@
-#!/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/bin/ruby
-# /usr/bin/ruby -e "$(curl -fsSL https://raw.github.com/suderman/dotfiles/master/osx/bootstrap.rb)"
+#!/bin/sh
+# curl https://raw.github.com/suderman/dotfiles/master/osx/bootstrap.sh | sh
 
 # URL to git installer
-git = "https://dl.dropbox.com/s/y80vt8720xrv5h0/git.pkg"
+$GIT="https://dl.dropbox.com/s/y80vt8720xrv5h0/git.pkg"
 
 # Install git
-system "curl #{git} -o /tmp/git.pkg"
-system "sudo installer -pkg /tmp/git.pkg -target /"
+echo "Downloading Git"
+curl "$GIT" -o /tmp/git.pkg
+echo "Installing Git"
+sudo installer -pkg /tmp/git.pkg -target /
 
 # Install dotfiles
-system "/usr/local/git/bin/git clone https://suderman@github.com/suderman/dotfiles.git ~/.dotfiles"
-system "cd ~/.dotfiles && ./install.rb"
-system "source ~/.zshrc"
+echo "Cloning dotfiles"
+/usr/local/git/bin/git clone https://suderman@github.com/suderman/dotfiles.git ~/.dotfiles
+echo "Installing dotfiles"
+cd ~/.dotfiles && ./install.rb
+source ~/.zshrc
 
-# OS X settings, library syncing and apps
-system "cd ~/.osx && ./install.rb"
+# OS X apps, library and settings
+echo "OS X apps, library and settings"
+cd ~/.osx && ./install.rb
