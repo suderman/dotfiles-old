@@ -2,7 +2,7 @@
 # curl https://raw.github.com/suderman/dotfiles/master/osx/bootstrap.sh | sh
 
 # URL to git installer
-$GIT="https://dl.dropbox.com/s/y80vt8720xrv5h0/git.pkg"
+GIT="https://dl.dropbox.com/s/y80vt8720xrv5h0/git.pkg"
 
 # Install git
 echo "Downloading Git"
