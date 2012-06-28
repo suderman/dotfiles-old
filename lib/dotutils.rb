@@ -42,7 +42,7 @@ module DotUtils
       end
 
       puts gray(output)
-      yield(path, repo) if block_given?
+      yield(path) if block_given?
 
     end
   end
