@@ -5,7 +5,7 @@ require './lib/dotutils'
 include DotUtils
 
 # Install oh-my-zsh
-git '~/.oh-my-zsh', :repo => 'robbyrussell/oh-my-zsh' do |path|
+git '~/.oh-my-zsh', :repo => 'git://github.com/robbyrussell/oh-my-zsh.git' do |path|
   `cd #{path} && rm -rf .gitignore custom`
 end
 
