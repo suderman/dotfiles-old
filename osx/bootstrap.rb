@@ -10,7 +10,7 @@ system "sudo installer -pkg /tmp/git.pkg -target /"
 system "source /etc/profile"
 
 # Install dotfiles
-system "git clone https://suderman@github.com/suderman/dotfiles.git ~/.dotfiles"
+system "/usr/local/git/bin/git clone https://suderman@github.com/suderman/dotfiles.git ~/.dotfiles"
 system "cd ~/.dotfiles && ./install.rb"
 system "source ~/.zshrc"
 
