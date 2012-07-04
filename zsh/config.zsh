@@ -24,7 +24,7 @@ if command -v "rbenv" &>/dev/null
 then
   export PREFIX=$HOME
   eval "$(rbenv init -)"
-  rbenv global 1.9.2-p290
+  rbenv global 1.9.3-rc1
 fi
 
 # home bin
