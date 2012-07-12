@@ -1,0 +1,27 @@
+~/:
+  .bashrc:      -> bash/bashrc
+  .bridge_keys: -> secure/ruby/bridge_keys
+  .chef:        -> secure/chef
+  .gemrc:       -> ruby/gemrc
+  .gitconfig:   -> scm/gitconfig
+  .gitignore:   -> scm/gitignore
+  .hgrc:        -> scm/hgrc
+  .inputrc:     -> text/inputrc
+  .irbrc:       -> ruby/irbrc
+  .local:
+    share
+  .muttrc:      -> mail/muttrc
+  .nanorc:      -> text/nanorc
+  .nterchange:  -> ruby/nterchange
+  .oh-my-zsh:
+    custom:     -> zsh
+    .gitignore: -> zsh/gitignore
+  .osx:         -> osx
+  .powconfig:   -> ruby/powconfig
+  .secure:      -> secure
+  .ssh:
+    config:     -> secure/ssh/config
+    id_rsa:     -> secure/ssh/id_rsa
+    id_rsa.pub: -> secure/ssh/id_rsa.pub
+  .tmux.conf:   -> tmux/tmux.conf
+  .zshrc:       -> zsh/zshrc

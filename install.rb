@@ -15,4 +15,5 @@ git 'secure', :repo => 'suderman/dotfiles-secure' do |path|
 end
 
 # Symlink the dotfiles
-symlink "symlinks"
+system "curl https://raw.github.com/suderman/symlink/master/install.sh | sh" unless command? 'symlink'
+system "symlink ./symlinks.yml"
