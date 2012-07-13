@@ -4,41 +4,31 @@
 # Apps                                                                        #
 ###############################################################################
 
-while true; do
-  read -p "Install OS X apps? [y/n] " yn
-  case $yn in
-    [Yy]* ) echo "Installing apps"
-      if [ ! -d "/usr/local/bin/appstack" ]; then
-        curl https://raw.github.com/suderman/appstack/master/install.sh | sh
-      fi
-      /usr/local/bin/appstack ~/.osx/apps.yml
-      break;;
-    * ) break;;
-  esac
-done
+read -p "Install OS X apps? [y/n] " yn
+case $yn in
+  [Yy]* ) echo "Installing apps"
+    command -v appstack >/dev/null 2>&1 || { curl https://raw.github.com/suderman/appstack/master/install.sh | sh; }
+    appstack ~/.osx/apps.yml
+esac
 
 ###############################################################################
 # Symlinks                                                                    #
 ###############################################################################
 
-while true; do
-  read -p "Sync ~/Library with Dropbox? [y/n] " yn
-  case $yn in
-    [Yy]* ) echo "Creating symlinks"
-      # sync_library :home => '~/Library', :cloud => '~/Dropbox/Library'
-      break;;
-    * ) break;;
-  esac
-done
+read -p "Sync ~/Library with Dropbox? [y/n] " yn
+case $yn in
+  [Yy]* ) echo "Creating symlinks"
+    command -v symlink >/dev/null 2>&1 || { curl https://raw.github.com/suderman/symlink/master/install.sh | sh; }
+    # symlink ~/.osx/symlinks.yml
+esac
 
 ###############################################################################
 # Settings                                                                    #
 ###############################################################################
 
-while true; do
-  read -p "Apply system preferences? [y/n] " yn
-  case $yn in
-    [Yy]* ) echo "Configuring system"
+read -p "Apply system preferences? [y/n] " yn
+case $yn in
+  [Yy]* ) echo "Configuring system"
 
 ###############################################################################
 # General UI/UX                                                               #
@@ -363,8 +353,4 @@ echo "Done. Note that some of these changes require a logout/restart to take eff
 ###############################################################################
 # /Settings                                                                   #
 ###############################################################################
-
-      break;;
-    * ) exit;;
-  esac
-done
+esac
