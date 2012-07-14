@@ -19,7 +19,8 @@ read -p "Sync ~/Library with Dropbox? [y/n] " yn
 case $yn in
   [Yy]* ) echo "Creating symlinks"
     command -v symlink >/dev/null 2>&1 || { curl https://raw.github.com/suderman/symlink/master/install.sh | sh; }
-    # symlink ~/.osx/symlinks.yml
+    mkdir -p ~/Dropbox/Library
+    cd ~/Dropbox/Library && symlink ~/.osx/symlinks.yml
 esac
 
 ###############################################################################
