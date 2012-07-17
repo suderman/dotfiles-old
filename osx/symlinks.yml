@@ -26,6 +26,7 @@
       com.fluidapp.Fluid.plist:                          -> Preferences/com.fluidapp.Fluid.plist
       com.fluidapp.FluidApp.Basecamp.plist:              -> Preferences/com.fluidapp.FluidApp.Basecamp.plist
       com.fluidapp.FluidApp.Campfire.plist:              -> Preferences/com.fluidapp.FluidApp.Campfire.plist
+      com.fluidapp.FluidApp.GitHub.com.plist:            -> Preferences/com.fluidapp.FluidApp.GitHub.com.plist
       com.fluidapp.FluidApp.LogMeIn.plist:               -> Preferences/com.fluidapp.FluidApp.LogMeIn.plist
       com.fluidapp.FluidApp.nonwiki.plist:               -> Preferences/com.fluidapp.FluidApp.nonwiki.plist
       com.google.code.sequel-pro.plist:                  -> Preferences/com.google.code.sequel-pro.plist

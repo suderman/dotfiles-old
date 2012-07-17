@@ -1,12 +1,14 @@
 # Specify an install order for the basic stuff
-bootstrap: [app, llvm-gcc, gcc, brew, node, npm, rbenv, ruby-build]
+bootstrap: [app, gcc, llvm-gcc, brew, node, npm, rbenv, ruby-build]
 
 # app is an installer for .app, .pkg, .mpkg, .prefPane and .safariextz
 app: curl https://raw.github.com/suderman/app/master/install.sh | sh
 
+# Original GCC to compile older rubies; install before llvm-gcc
+gcc: zmlm47fmbqcnwl7/GCC-10.7-v2.pkg
+
 # Compiler and command line tools required for node and homebrew
 llvm-gcc: 94pqy3oq1zt9xso/cltools_lion_latemarch12.dmg
-gcc: zmlm47fmbqcnwl7/GCC-10.7-v2.pkg
 
 # Homebrew
 brew: /usr/bin/ruby -e "$(/usr/bin/curl -fsSL https://raw.github.com/mxcl/homebrew/master/Library/Contributions/install_homebrew.rb)"
@@ -44,6 +46,10 @@ mysql:
 # Dev Apps
 iTerm.app: 7ea3rrgr61waymt/iTerm2-1_0_0_20120203.zip
 GitHub.app: b9mfv7qex3vst7o/mac_GitHub%20for%20Mac%201.2.8.zip
+GitHub.com.app: i25it8jaqrf2q9h/GitHub.com.zip
+Basecamp.app: 5zhat5an0iemhd6/Basecamp.zip
+Campfire.app: fmwgxxbfi51y0ua/Campfire.zip
+nonwiki.app: vfkd661u3sht7ni/nonwiki.zip
 Sequel Pro.app: 04769oqwgtz1zvl/Sequel_Pro_0-1.9.9.1.dmg
 Transmit.app: 21ire2wz5ka1uii/Transmit%204.1.9.zip
 MockSmtp.app: mocksmtp/id423535515
@@ -67,6 +73,7 @@ Dropbox.app:
   use: 98shr7bfcuoo39o/Dropbox%201-2.4.7.dmg
   run: mv -f /Applications/Dropbox.app/Contents/Resources/check.icns /Applications/Dropbox.app/Contents/Resources/check.icns.bak
 Growl.app: growl/id467939042
+LogMeIn.app: kmtrn8vidwrskse/LogMeIn.zip
 LogMeIn.plugin: https://secure.logmein.com/central/Central.aspx
 The Unarchiver.app: the-unarchiver/id425424353
 MadCatzCyborgRAT.prefpane: 14qwnmx1j7hssns/CyborgRAT-1.1.28.zip
