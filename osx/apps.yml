@@ -1,14 +1,11 @@
 # Specify an install order for the basic stuff
-bootstrap: [app, gcc, llvm-gcc, brew, node, npm, rbenv, ruby-build]
+bootstrap: [app, gcc, brew, node, npm, apple-gcc42, rbenv, ruby-build]
 
 # app is an installer for .app, .pkg, .mpkg, .prefPane and .safariextz
 app: curl https://raw.github.com/suderman/app/master/install.sh | sh
 
-# Original GCC to compile older rubies; install before llvm-gcc
-gcc: zmlm47fmbqcnwl7/GCC-10.7-v2.pkg
-
-# Compiler and command line tools required for node and homebrew
-llvm-gcc: 94pqy3oq1zt9xso/cltools_lion_latemarch12.dmg
+# Compiler & command line tools required for node and homebrew
+gcc: 94pqy3oq1zt9xso/cltools_lion_latemarch12.dmg
 
 # Homebrew
 brew: /usr/bin/ruby -e "$(/usr/bin/curl -fsSL https://raw.github.com/mxcl/homebrew/master/Library/Contributions/install_homebrew.rb)"
@@ -16,6 +13,9 @@ brew: /usr/bin/ruby -e "$(/usr/bin/curl -fsSL https://raw.github.com/mxcl/homebr
 # Node
 node: brew
 npm: curl http://npmjs.org/install.sh | sh
+
+# GCC 4.2 to compile older rubies
+apple-gcc42: brew Homebrew/dupes
 
 # Ruby
 rbenv: brew
