@@ -1,148 +1,187 @@
-# Specify an install order for the basic stuff
-bootstrap: [app, gcc, brew, node, npm, apple-gcc42, rbenv, ruby-build]
+# Jon Suderman's apps for OS X Lion
+# https://github.com/suderman/dotfiles
 
-# app is an installer for .app, .pkg, .mpkg, .prefPane and .safariextz
-app: curl https://raw.github.com/suderman/app/master/install.sh | sh
+# For use with https://github.com/suderman/appstack
+# Usage: appstack apps.yml
 
-# Compiler & command line tools required for node and homebrew
-gcc: 94pqy3oq1zt9xso/cltools_lion_latemarch12.dmg
+# ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀
+# ▀▄▀▄▀▄   Bootstrap my system   ▄▀▄▀▄▀
+# ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀
 
-# Homebrew
-brew: /usr/bin/ruby -e "$(/usr/bin/curl -fsSL https://raw.github.com/mxcl/homebrew/master/Library/Contributions/install_homebrew.rb)"
-
-# Node
-node: brew
-npm: curl http://npmjs.org/install.sh | sh
-
-# GCC 4.2 to compile older rubies
-apple-gcc42: brew Homebrew/dupes
-
-# Ruby
-rbenv: brew
+bootstrap:                             [app, gcc, brew, apple-gcc42, node, npm, rbenv, ruby-build]
+app:                                   curl https://raw.github.com/suderman/app/master/install.sh | sh
+gcc:                                   c8a7mpghlzcytdt/command_line_tools_for_xcode_june_2012.dmg
+brew:                                  /usr/bin/ruby -e "$(/usr/bin/curl -fsSL https://raw.github.com/mxcl/homebrew/master/Library/Contributions/install_homebrew.rb)"
+apple-gcc42:                           brew homebrew/dupes
+node:                                  brew
+npm:                                   curl http://npmjs.org/install.sh | sh
+rbenv:                                 brew
 ruby-build:
-  use: brew
-  run: [rbenv install 1.9.3-rc1, rbenv install 1.8.7-p358]
+  use:                                 brew
+  run:                                 [rbenv install 1.9.3-rc1, rbenv install 1.8.7-p358]
 
-# Dev Tools
-git: brew
-tig: brew
-tmux: brew
-reattach-to-user-namespace: brew
-nginx: brew
-sng: npm
-php53: brew --with-mysql --with-cgi josegonzalez/php
-recess: npm
-coffee-script: npm
-uglify-js: npm
-import: npm
-underscore: npm
+
+# ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀
+# ▀▄▀▄▀▄        Dev Tools        ▄▀▄▀▄▀
+# ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀
+
+git:                                   brew
+tig:                                   brew
+tmux:                                  brew
+reattach-to-user-namespace:            brew
+nginx:                                 brew
+sng:                                   npm
+php53:                                 brew --with-mysql --with-cgi josegonzalez/php
+recess:                                npm
+coffee-script:                         npm
+uglify-js:                             npm
+import:                                npm
+underscore:                            npm
 imagemagick:
-  use: brew
-  run: brew link imagemagick
+  use:                                 brew
+  run:                                 brew link imagemagick
 mysql:
-  use: brew
-  run: curl https://raw.github.com/gist/3092825/d750359f1f8d00da17d9f47367c4fe98dfa6e179/mysql.sh
+  use:                                 brew
+  run:                                 curl https://raw.github.com/gist/3092825/d750359f1f8d00da17d9f47367c4fe98dfa6e179/mysql.sh | sh
 
-# Dev Apps
-iTerm.app: 7ea3rrgr61waymt/iTerm2-1_0_0_20120203.zip
-GitHub.app: b9mfv7qex3vst7o/mac_GitHub%20for%20Mac%201.2.8.zip
-GitHub.com.app: i25it8jaqrf2q9h/GitHub.com.zip
-Basecamp.app: 5zhat5an0iemhd6/Basecamp.zip
-Campfire.app: fmwgxxbfi51y0ua/Campfire.zip
-nonwiki.app: vfkd661u3sht7ni/nonwiki.zip
-Sequel Pro.app: 04769oqwgtz1zvl/Sequel_Pro_0-1.9.9.1.dmg
-Transmit.app: 21ire2wz5ka1uii/Transmit%204.1.9.zip
-MockSmtp.app: mocksmtp/id423535515
-TrackRecord 2.app: 67dr8c3pbyh60qc/TrackRecord2.zip
-Paparazzi!.app: 6zz38gxlauhtu4x/Paparazzi!%200.5b6.dmg
-Google Chrome Canary.app: f745kq4kt1ay3v2/GoogleChromeCanary.dmg
-Firefox.app: hruunbihzkfmdkh/Firefox%2013.0.dmg
+
+# ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀
+# ▀▄▀▄▀▄        Dev Apps         ▄▀▄▀▄▀
+# ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀
+
+iTerm.app:                             7ea3rrgr61waymt/iTerm2-1_0_0_20120203.zip
+GitHub.app:                            b9mfv7qex3vst7o/mac_GitHub%20for%20Mac%201.2.8.zip
+GitHub.com.app:                        i25it8jaqrf2q9h/GitHub.com.zip
+Basecamp.app:                          5zhat5an0iemhd6/Basecamp.zip
+nonwiki.app:                           vfkd661u3sht7ni/nonwiki.zip
+Sequel Pro.app:                        04769oqwgtz1zvl/Sequel_Pro_0-1.9.9.1.dmg
+Transmit.app:                          21ire2wz5ka1uii/Transmit%204.1.9.zip
+MockSmtp.app:                          mocksmtp/id423535515
+TrackRecord 2.app:                     67dr8c3pbyh60qc/TrackRecord2.zip
+Paparazzi!.app:                        6zz38gxlauhtu4x/Paparazzi!%200.5b6.dmg
+Google Chrome Canary.app:              f745kq4kt1ay3v2/GoogleChromeCanary.dmg
+Firefox.app:                           hruunbihzkfmdkh/Firefox%2013.0.dmg
 VMware Fusion.app:
-  use: ccwrx1dcrxtbmoj/VMware-Fusion-4-1.1.1-536016-light.dmg
-  run: |
-    rm -rf "/Applications/Getting Started.app"
-    rm -rf "/Applications/Double-click to upgrade from VMware Fusion 3.app"
+  use:                                 ccwrx1dcrxtbmoj/VMware-Fusion-4-1.1.1-536016-light.dmg
+  run:                                 rm -rf "/Applications/Getting Started.app" "/Applications/Double-click to upgrade from VMware Fusion 3.app"
 
-# Text Editors
-macvim: brew
-TextMate.app: zpw8toxz82kfbo0/TextMate_1.5.10_r1631.zip
-TextWrangler.app: 7oo4jcqkbfwi1na/TextWrangler_4.0.1.dmg
 
-# Utilities
+# ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀
+# ▀▄▀▄▀▄      Text Editors       ▄▀▄▀▄▀
+# ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀
+
+macvim:                                brew
+TextMate.app:                          zpw8toxz82kfbo0/TextMate_1.5.10_r1631.zip
+TextWrangler.app:                      7oo4jcqkbfwi1na/TextWrangler_4.0.1.dmg
+
+
+# ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀
+# ▀▄▀▄▀▄        Utilities        ▄▀▄▀▄▀
+# ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀
+
 Dropbox.app:
-  use: 98shr7bfcuoo39o/Dropbox%201-2.4.7.dmg
-  run: mv -f /Applications/Dropbox.app/Contents/Resources/check.icns /Applications/Dropbox.app/Contents/Resources/check.icns.bak
-Growl.app: growl/id467939042
-LogMeIn.app: kmtrn8vidwrskse/LogMeIn.zip
-LogMeIn.plugin: https://secure.logmein.com/central/Central.aspx
-The Unarchiver.app: the-unarchiver/id425424353
-MadCatzCyborgRAT.prefpane: 14qwnmx1j7hssns/CyborgRAT-1.1.28.zip
-OpenDNS Updater.app: 4zfe0u2zcmbiwxl/OpenDNS-Updater-Mac-3.0.zip
-Touvaly.app: tfqfa9tc52lyli3/Touvaly.dmg
-autojump: brew
-wget: brew
-ack: brew
+  use:                                 98shr7bfcuoo39o/Dropbox%201-2.4.7.dmg
+  run:                                 mv -f /Applications/Dropbox.app/Contents/Resources/check.icns /Applications/Dropbox.app/Contents/Resources/check.icns.bak
+Growl.app:                             growl/id467939042
+LogMeIn.app:                           kmtrn8vidwrskse/LogMeIn.zip
+LogMeIn.plugin:                        https://secure.logmein.com/central/Central.aspx
+The Unarchiver.app:                    the-unarchiver/id425424353
+MadCatzCyborgRAT.prefpane:             14qwnmx1j7hssns/CyborgRAT-1.1.28.zip
+OpenDNS Updater.app:                   4zfe0u2zcmbiwxl/OpenDNS-Updater-Mac-3.0.zip
+Touvaly.app:                           tfqfa9tc52lyli3/Touvaly.dmg
+autojump:                              brew
+wget:                                  brew
+ack:                                   brew
 
-# OS Tweaks
-Keyboard Maestro.app: adhls8fks3zd5w7/keyboardmaestro-53.zip
-HyperDock.prefpane: is9nsdccng8oszx/HyperDock.dmg
-Choosy.prefPane: o13tedgqqbr8kcx/choosy_1.0.3.zip
-DragonDrop.app: dragondrop/id499148234
-KeyBindingsEditor.app: bmqpa7r22p3e0om/KeyBindingsEditor.dmg
-Launchpad-Control.prefPane: jyqrk79gdmxpxiu/Launchpad-Control.zip
-SymbolicLinker.service: 82h6k9y21hr6a94/SymbolicLinker2.0v3.dmg
-GlimmerBlocker.prefPane: 4xd166u4sza9mth/GlimmerBlocker-1.4.16.dmg
-CandyBar.app: ql0m0mbo2fbpak5/CandyBar%203.3.3.zip
 
-# Productivity
-Alfred.app: kx14ctpfimh0c9d/alfred_1.2_220.dmg
-1Password.app: qrzzgq8ts5aku6i/1Password-3.8.19.zip
-Sparrow.app: sparrow/id417250177
-Fantastical.app: vnptk8hadxtlu5c/Fantastical_1.3.1.zip
-Cobook.app: cobook/id525225808
-Reeder.app: reeder/id439845554
-Twitter.app: twitter/id409789998
-Skitch.app: skitch/id425955336
-Droplr.app: droplr/id498672703
-iPhoto.app: iphoto/id408981381
-Fluid.app: rcwiw6dyyuavflz/Fluid_1.4.zip
-AppCleaner.app: 2zfya705d06s6ft/AppCleaner_2.1.zip
-alpine: brew
+# ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀
+# ▀▄▀▄▀▄         Tweaks          ▄▀▄▀▄▀
+# ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀
 
-# Creative
-Scrivener.app: djs7ltsaxic1m29/Scrivener.dmg
-Aeon Timeline.app: gbm412936b5bc2b/AeonTimeline_1_0_0.dmg
-nvALT.app: qmudrmuedwkg1op/nvALT.zip
-Microsoft Word.app: qhffiny60eohwux/X17-45975-1.dmg
-Adobe Photoshop CS6.app: ziwjn4rrwuzqjiw/Photoshop_13_LS16-1.dmg --open
-Adobe Fireworks CS6.app: d1kwyivqgcwtgsu/Fireworks_12_LS16.dmg --open
+Keyboard Maestro.app:                  adhls8fks3zd5w7/keyboardmaestro-53.zip
+HyperDock.prefpane:                    is9nsdccng8oszx/HyperDock.dmg
+Choosy.prefPane:                       o13tedgqqbr8kcx/choosy_1.0.3.zip
+DragonDrop.app:                        dragondrop/id499148234
+KeyBindingsEditor.app:                 bmqpa7r22p3e0om/KeyBindingsEditor.dmg
+Launchpad-Control.prefPane:            jyqrk79gdmxpxiu/Launchpad-Control.zip
+SymbolicLinker.service:                82h6k9y21hr6a94/SymbolicLinker2.0v3.dmg
+GlimmerBlocker.prefPane:               4xd166u4sza9mth/GlimmerBlocker-1.4.16.dmg
+CandyBar.app:                          ql0m0mbo2fbpak5/CandyBar%203.3.3.zip
 
-# Media
-Air Video Server.app: l1byxw5xl364hqa/Air%2BVideo%2BServer%2B2.4.3.dmg
-HandBrake.app: kr8k6o8ztzeylsk/HandBrake-0.9.6-MacOSX.6_GUI_x86_64.dmg
-Newzbin2 Client.app: sa5cerl4c2c7st8/Newzbin2Client-1.1.0.0.345.intel.app.zip
-PS3 Media Server.app: nl97t7mjy1wzq2m/pms-macosx-1.52.1.dmg
-SABnzbd.app: uhyv3mb6np1w4ic/SABnzbd-0.6.15-osx.dmg
-Transmission.app: ys0qwe3wmiue5am/Transmission-2.52.dmg
-SMBUp.app: mn2fvxl1r8lq2im/SMBUp.1.4.zip
-VLC.app: wdigoghitm7o49o/vlc-2.0.1.dmg
-Flash Player.prefPane: j9tmfny7bmlgtm4/install_flash_player_osx.dmg --open
-Flip4Mac WMV.prefPane: ld41cypzf8hzuof/Flip4Mac%20WMV%202.4.4.2.dmg
-Silverlight.plugin: ld41cypzf8hzuof/Flip4Mac%20WMV%202.4.4.2.dmg
 
-# Communication
-Skype.app: 0qi5uxdkr0xtdbv/Skype_5.7.0.1130.dmg
-googletalkbrowserplugin.plugin: 3u1f0cnwbq02f2n/GoogleVoiceAndVideoSetup.dmg
+# ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀
+# ▀▄▀▄▀▄      Productivity       ▄▀▄▀▄▀
+# ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀
 
-# Music
-Spotify.app: ob22feftln93nry/SpotifyInstaller.zip --open
-Soundflowerbed.app: lmlfgk1yn0yn55a/Soundflower-1.6.2.1.dmg
+Alfred.app:                            kx14ctpfimh0c9d/alfred_1.2_220.dmg
+1Password.app:                         qrzzgq8ts5aku6i/1Password-3.8.19.zip
+Sparrow.app:                           sparrow/id417250177
+Fantastical.app:                       vnptk8hadxtlu5c/Fantastical_1.3.1.zip
+Cobook.app:                            cobook/id525225808
+Reeder.app:                            reeder/id439845554
+Twitter.app:                           twitter/id409789998
+Skitch.app:                            skitch/id425955336
+Droplr.app:                            droplr/id498672703
+iPhoto.app:                            iphoto/id408981381
+Fluid.app:                             rcwiw6dyyuavflz/Fluid_1.4.zip
+AppCleaner.app:                        2zfya705d06s6ft/AppCleaner_2.1.zip
+alpine:                                brew
+
+
+# ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀
+# ▀▄▀▄▀▄        Creative         ▄▀▄▀▄▀
+# ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀
+
+Scrivener.app:                         djs7ltsaxic1m29/Scrivener.dmg
+Aeon Timeline.app:                     gbm412936b5bc2b/AeonTimeline_1_0_0.dmg
+nvALT.app:                             qmudrmuedwkg1op/nvALT.zip
+Microsoft Word.app:                    qhffiny60eohwux/X17-45975-1.dmg
+Adobe Photoshop CS6.app:               ziwjn4rrwuzqjiw/Photoshop_13_LS16-1.dmg --open
+Adobe Fireworks CS6.app:               d1kwyivqgcwtgsu/Fireworks_12_LS16.dmg --open
+
+
+# ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀
+# ▀▄▀▄▀▄         Media           ▄▀▄▀▄▀
+# ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀
+
+Air Video Server.app:                  l1byxw5xl364hqa/Air%2BVideo%2BServer%2B2.4.3.dmg
+HandBrake.app:                         kr8k6o8ztzeylsk/HandBrake-0.9.6-MacOSX.6_GUI_x86_64.dmg
+Newzbin2 Client.app:                   sa5cerl4c2c7st8/Newzbin2Client-1.1.0.0.345.intel.app.zip
+PS3 Media Server.app:                  nl97t7mjy1wzq2m/pms-macosx-1.52.1.dmg
+SABnzbd.app:                           uhyv3mb6np1w4ic/SABnzbd-0.6.15-osx.dmg
+Transmission.app:                      ys0qwe3wmiue5am/Transmission-2.52.dmg
+SMBUp.app:                             mn2fvxl1r8lq2im/SMBUp.1.4.zip
+VLC.app:                               wdigoghitm7o49o/vlc-2.0.1.dmg
+Flash Player.prefPane:                 j9tmfny7bmlgtm4/install_flash_player_osx.dmg --open
+Flip4Mac WMV.prefPane:                 ld41cypzf8hzuof/Flip4Mac%20WMV%202.4.4.2.dmg
+Silverlight.plugin:                    ld41cypzf8hzuof/Flip4Mac%20WMV%202.4.4.2.dmg
+
+
+# ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀
+# ▀▄▀▄▀▄     Communication       ▄▀▄▀▄▀
+# ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀
+
+Skype.app:                             0qi5uxdkr0xtdbv/Skype_5.7.0.1130.dmg
+googletalkbrowserplugin.plugin:        3u1f0cnwbq02f2n/GoogleVoiceAndVideoSetup.dmg
+Campfire.app:                          fmwgxxbfi51y0ua/Campfire.zip
+
+
+# ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀
+# ▀▄▀▄▀▄         Music           ▄▀▄▀▄▀
+# ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀
+
+Spotify.app:                           ob22feftln93nry/SpotifyInstaller.zip --open
+Soundflowerbed.app:                    lmlfgk1yn0yn55a/Soundflower-1.6.2.1.dmg
 Smutefy.app: 
-  use: 2qz07v89y2vnk2d/Smutefy.zip
-  pre: [Spotify.app, Soundflowerbed.app]
-YouTube to MP3.app: 4o5zldmvegornsq/YouTubeToMP3.dmg
+  use:                                 2qz07v89y2vnk2d/Smutefy.zip
+  pre:                                 [Spotify.app, Soundflowerbed.app]
+YouTube to MP3.app:                    4o5zldmvegornsq/YouTubeToMP3.dmg
 
-# Fun
-Steam.app: h13dp61qet1n1l0/steam.dmg
-World of Goo.app: WorldOfGoo.1.30.dmg
-Satellite Eyes.app: 6z6xrls9ydz9r0o/satellite-eyes-head.zip
+
+# ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀
+# ▀▄▀▄▀▄          Fun            ▄▀▄▀▄▀
+# ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀
+
+Steam.app:                             h13dp61qet1n1l0/steam.dmg
+World of Goo.app:                      WorldOfGoo.1.30.dmg
+Satellite Eyes.app:                    6z6xrls9ydz9r0o/satellite-eyes-head.zip
