@@ -4,9 +4,9 @@
 # Apps                                                                        #
 ###############################################################################
 
-read -p "Install OS X apps? [y/n] " yn
+echo ""; read -p "Install OS X apps? [y/n] " yn
 case $yn in
-  [Yy]* ) echo "Installing apps"
+  [Yy]* ) echo ""; echo "Installing apps"
     command -v appstack >/dev/null 2>&1 || { curl https://raw.github.com/suderman/appstack/master/install.sh | sh; }
     appstack ~/.osx/apps.yml
 esac
@@ -15,9 +15,9 @@ esac
 # Symlinks                                                                    #
 ###############################################################################
 
-read -p "Sync ~/Library with Dropbox? [y/n] " yn
+echo ""; read -p "Sync ~/Library with Dropbox? [y/n] " yn
 case $yn in
-  [Yy]* ) echo "Creating symlinks"
+  [Yy]* ) echo ""; echo "Creating symlinks"
     command -v symlink >/dev/null 2>&1 || { curl https://raw.github.com/suderman/symlink/master/install.sh | sh; }
     mkdir -p ~/Dropbox/Library
     cd ~/Dropbox/Library && symlink ~/.osx/symlinks.yml
@@ -27,9 +27,9 @@ esac
 # Settings                                                                    #
 ###############################################################################
 
-read -p "Apply system preferences? [y/n] " yn
+echo ""; read -p "Apply system preferences? [y/n] " yn
 case $yn in
-  [Yy]* ) echo "Configuring system"
+  [Yy]* ) echo ""; echo "Configuring system"
 
 ###############################################################################
 # General UI/UX                                                               #
@@ -75,19 +75,19 @@ defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
 echo "0x08000100:0" > ~/.CFUserTextEncoding
 
 ###############################################################################
-# Trackpad, mouse, keyboard, and input                                        #
+# Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
 ###############################################################################
 
 # Trackpad: enable tap to click for this user and for the login screen
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
-defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
-defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+# defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+# defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
 # Trackpad: map bottom right corner to right-click
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -int 2
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
-defaults -currentHost write NSGlobalDomain com.apple.trackpad.trackpadCornerClickBehavior -int 1
-defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
+# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -int 2
+# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
+# defaults -currentHost write NSGlobalDomain com.apple.trackpad.trackpadCornerClickBehavior -int 1
+# defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
 
 # Trackpad: swipe between pages with three fingers
 defaults write NSGlobalDomain AppleEnableSwipeNavigateWithScrolls -bool true
@@ -96,6 +96,9 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeF
 
 # Enable “natural” (Lion-style) scrolling
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool true
+
+# Increase sound quality for Bluetooth headphones/headsets
+defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
 
 # Enable full keyboard access for all controls
 # (e.g. enable Tab in modal dialogs)
@@ -230,8 +233,8 @@ defaults write com.apple.dock autohide-time-modifier -float 0
 # Enable the 2D Dock
 defaults write com.apple.dock no-glass -bool true
 
-# Automatically hide and show the Dock
-defaults write com.apple.dock autohide -bool true
+# Don't automatically hide and show the Dock
+defaults write com.apple.dock autohide -bool false
 
 # Make Dock icons of hidden applications translucent
 defaults write com.apple.dock showhidden -bool true
@@ -349,6 +352,8 @@ hash tmutil &> /dev/null && sudo tmutil disablelocal
 for app in Finder Dock Mail Safari iTunes iCal Address\ Book SystemUIServer; do
   killall "$app" > /dev/null 2>&1
 done
+
+echo ""
 echo "Done. Note that some of these changes require a logout/restart to take effect."
 
 ###############################################################################
