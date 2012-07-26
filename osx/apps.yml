@@ -39,9 +39,11 @@ coffee-script:                         npm
 uglify-js:                             npm
 import:                                npm
 underscore:                            npm
+XQuartz.app:                           paas8vb49kc66bf/XQuartz-2.7.2.dmg
 imagemagick:
   use:                                 brew
   run:                                 brew link imagemagick
+  pre:                                 XQuartz.app
 mysql:
   use:                                 brew
   run:                                 curl https://raw.github.com/gist/3092825/d750359f1f8d00da17d9f47367c4fe98dfa6e179/mysql.sh | sh
@@ -90,7 +92,7 @@ Hiss.app:                              aekouzedxtqv2wj/Hiss.zip
 LogMeIn.app:                           kmtrn8vidwrskse/LogMeIn.zip
 LogMeIn.plugin:                        https://secure.logmein.com/central/Central.aspx
 The Unarchiver.app:                    the-unarchiver/id425424353
-MadCatzCyborgRAT.prefpane:             14qwnmx1j7hssns/CyborgRAT-1.1.28.zip
+MadCatzCyborgRAT.prefPane:             14qwnmx1j7hssns/CyborgRAT-1.1.28.zip
 OpenDNS Updater.app:                   4zfe0u2zcmbiwxl/OpenDNS-Updater-Mac-3.0.zip
 Touvaly.app:                           tfqfa9tc52lyli3/Touvaly.dmg
 autojump:                              brew
@@ -103,7 +105,7 @@ ack:                                   brew
 # ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀
 
 Keyboard Maestro.app:                  adhls8fks3zd5w7/keyboardmaestro-53.zip
-HyperDock.prefpane:                    is9nsdccng8oszx/HyperDock.dmg
+HyperDock.prefPane:                    is9nsdccng8oszx/HyperDock.dmg
 Choosy.prefPane:                       o13tedgqqbr8kcx/choosy_1.0.3.zip
 DragonDrop.app:                        dragondrop/id499148234
 KeyBindingsEditor.app:                 bmqpa7r22p3e0om/KeyBindingsEditor.dmg
