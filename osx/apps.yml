@@ -157,10 +157,12 @@ PS3 Media Server.app:                  nl97t7mjy1wzq2m/pms-macosx-1.52.1.dmg
 SABnzbd.app:                           uhyv3mb6np1w4ic/SABnzbd-0.6.15-osx.dmg
 Transmission.app:                      ys0qwe3wmiue5am/Transmission-2.52.dmg
 SMBUp.app:                             mn2fvxl1r8lq2im/SMBUp.1.4.zip
-VLC.app:                               wdigoghitm7o49o/vlc-2.0.1.dmg
 Flash Player.prefPane:                 j9tmfny7bmlgtm4/install_flash_player_osx.dmg --open
 Flip4Mac WMV.prefPane:                 ld41cypzf8hzuof/Flip4Mac%20WMV%202.4.4.2.dmg
 Silverlight.plugin:                    ld41cypzf8hzuof/Flip4Mac%20WMV%202.4.4.2.dmg
+VLC.app:
+  use:                                 c114jep1g6q8ba7/vlc-2.0.3.dmg
+  run:                                 rm -rf "/Applications/Delete VLC Preferences.app"
 
 
 # ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀
@@ -190,4 +192,3 @@ YouTube to MP3.app:                    4o5zldmvegornsq/YouTubeToMP3.dmg
 
 Steam.app:                             h13dp61qet1n1l0/steam.dmg
 World of Goo.app:                      WorldOfGoo.1.30.dmg
-Satellite Eyes.app:                    6z6xrls9ydz9r0o/satellite-eyes-head.zip
