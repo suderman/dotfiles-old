@@ -72,7 +72,8 @@ VMware Fusion.app:
 # ▀▄▀▄▀▄      Text Editors       ▄▀▄▀▄▀
 # ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀
 
-macvim:                                brew
+MacVim.app:                            vfzgz7cr57dimyy/MacVim.021120112044.zip
+Sublime Text 2.app:                    kcqswwvvb8i7vpf/Sublime%20Text%202.0.1.dmg
 TextMate.app:                          zpw8toxz82kfbo0/TextMate_1.5.10_r1631.zip
 TextWrangler.app:                      7oo4jcqkbfwi1na/TextWrangler_4.0.1.dmg
 
@@ -85,6 +86,7 @@ Dropbox.app:
   use:                                 98shr7bfcuoo39o/Dropbox%201-2.4.7.dmg
   run:                                 mv -f /Applications/Dropbox.app/Contents/Resources/check.icns /Applications/Dropbox.app/Contents/Resources/check.icns.bak
 Growl.app:                             growl/id467939042
+Hiss.app:                              aekouzedxtqv2wj/Hiss.zip
 LogMeIn.app:                           kmtrn8vidwrskse/LogMeIn.zip
 LogMeIn.plugin:                        https://secure.logmein.com/central/Central.aspx
 The Unarchiver.app:                    the-unarchiver/id425424353
