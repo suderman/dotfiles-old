@@ -10,7 +10,9 @@
 
 bootstrap:                             [app, gcc, brew, apple-gcc42, node, npm, rbenv, ruby-build]
 app:                                   curl https://raw.github.com/suderman/app/master/install.sh | sh
-gcc:                                   8xw3aoht86gl78e/xcode44cltools_10_86938106a.dmg
+gcc:
+  use:                                 8xw3aoht86gl78e/xcode44cltools_10_86938106a.dmg
+  run:                                 sudo xcode-select -switch /usr/bin
 brew:                                  /usr/bin/ruby -e "$(/usr/bin/curl -fsSL https://raw.github.com/mxcl/homebrew/master/Library/Contributions/install_homebrew.rb)"
 apple-gcc42:                           brew homebrew/dupes
 node:                                  brew
