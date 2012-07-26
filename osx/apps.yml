@@ -1,4 +1,4 @@
-# Jon Suderman's apps for OS X Lion
+# Jon Suderman's apps for OS X Mountain Lion
 # https://github.com/suderman/dotfiles
 
 # For use with https://github.com/suderman/appstack
@@ -10,7 +10,7 @@
 
 bootstrap:                             [app, gcc, brew, apple-gcc42, node, npm, rbenv, ruby-build]
 app:                                   curl https://raw.github.com/suderman/app/master/install.sh | sh
-gcc:                                   c8a7mpghlzcytdt/command_line_tools_for_xcode_june_2012.dmg
+gcc:                                   c8oefwl6wa92jf2/xcode44cltools_10_76938107a.dmg
 brew:                                  /usr/bin/ruby -e "$(/usr/bin/curl -fsSL https://raw.github.com/mxcl/homebrew/master/Library/Contributions/install_homebrew.rb)"
 apple-gcc42:                           brew homebrew/dupes
 node:                                  brew
