@@ -54,7 +54,7 @@ mysql:
 # ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀
 
 iTerm.app:                             7ea3rrgr61waymt/iTerm2-1_0_0_20120203.zip
-GitHub.app:                            b9mfv7qex3vst7o/mac_GitHub%20for%20Mac%201.2.8.zip
+GitHub.app:                            ija7ob2ob5mo3j1/mac-GitHub%20for%20Mac%2049.zip
 GitHub.com.app:                        i25it8jaqrf2q9h/GitHub.com.zip
 Basecamp.app:                          5zhat5an0iemhd6/Basecamp.zip
 nonwiki.app:                           vfkd661u3sht7ni/nonwiki.zip
@@ -76,7 +76,7 @@ VMware Fusion.app:
 
 MacVim.app:                            vfzgz7cr57dimyy/MacVim.021120112044.zip
 Sublime Text 2.app:                    kcqswwvvb8i7vpf/Sublime%20Text%202.0.1.dmg
-TextMate.app:                          zpw8toxz82kfbo0/TextMate_1.5.10_r1631.zip
+TextMate.app:                          jna93s4ve234pa9/TextMate_1.5.11_r1635.zip
 TextWrangler.app:                      7oo4jcqkbfwi1na/TextWrangler_4.0.1.dmg
 
 
@@ -111,7 +111,7 @@ DragonDrop.app:                        dragondrop/id499148234
 KeyBindingsEditor.app:                 bmqpa7r22p3e0om/KeyBindingsEditor.dmg
 Launchpad-Control.prefPane:            jyqrk79gdmxpxiu/Launchpad-Control.zip
 SymbolicLinker.service:                82h6k9y21hr6a94/SymbolicLinker2.0v3.dmg
-GlimmerBlocker.prefPane:               4xd166u4sza9mth/GlimmerBlocker-1.4.16.dmg
+GlimmerBlocker.prefPane:               8ua0q2twpyft6zl/GlimmerBlocker-1.5.0.dmg
 CandyBar.app:                          ql0m0mbo2fbpak5/CandyBar%203.3.3.zip
 
 
@@ -119,17 +119,17 @@ CandyBar.app:                          ql0m0mbo2fbpak5/CandyBar%203.3.3.zip
 # ▀▄▀▄▀▄      Productivity       ▄▀▄▀▄▀
 # ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀
 
-Alfred.app:                            kx14ctpfimh0c9d/alfred_1.2_220.dmg
-1Password.app:                         qrzzgq8ts5aku6i/1Password-3.8.19.zip
+Alfred.app:                            f7jsnsf3cz2bswo/alfred_1.3_249.dmg
+1Password.app:                         5zjnsqk8jhyobjl/1Password-3.8.20.zip
 Sparrow.app:                           sparrow/id417250177
-Fantastical.app:                       vnptk8hadxtlu5c/Fantastical_1.3.1.zip
+Fantastical.app:                       q0wc1kfsyntr7di/Fantastical_1.3.2.zip
 Cobook.app:                            cobook/id525225808
 Reeder.app:                            reeder/id439845554
 Twitter.app:                           twitter/id409789998
 Skitch.app:                            skitch/id425955336
 Droplr.app:                            droplr/id498672703
 iPhoto.app:                            iphoto/id408981381
-Fluid.app:                             rcwiw6dyyuavflz/Fluid_1.4.zip
+Fluid.app:                             3vymf7grc61heqh/Fluid_1.6.zip
 AppCleaner.app:                        2zfya705d06s6ft/AppCleaner_2.1.zip
 alpine:                                brew
 
@@ -151,11 +151,11 @@ Adobe Fireworks CS6.app:               d1kwyivqgcwtgsu/Fireworks_12_LS16.dmg --o
 # ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀
 
 Air Video Server.app:                  l1byxw5xl364hqa/Air%2BVideo%2BServer%2B2.4.3.dmg
-HandBrake.app:                         kr8k6o8ztzeylsk/HandBrake-0.9.6-MacOSX.6_GUI_x86_64.dmg
+HandBrake.app:                         t2jyki72q6jxcv8/HandBrake-0.9.8-MacOSX.6_GUI_x86_64.dmg
 Newzbin2 Client.app:                   sa5cerl4c2c7st8/Newzbin2Client-1.1.0.0.345.intel.app.zip
-PS3 Media Server.app:                  nl97t7mjy1wzq2m/pms-macosx-1.52.1.dmg
-SABnzbd.app:                           uhyv3mb6np1w4ic/SABnzbd-0.6.15-osx.dmg
-Transmission.app:                      ys0qwe3wmiue5am/Transmission-2.52.dmg
+PS3 Media Server.app:                  gf7wgpgp81amkr0/pms-macosx-1.60.0.dmgg
+SABnzbd.app:                           fisjhuq2kg0s30u/SABnzbd-0.7.2-osx.dmg
+Transmission.app:                      z1d1l9j0nwrw3ky/Transmission-2.61.dmg
 SMBUp.app:                             mn2fvxl1r8lq2im/SMBUp.1.4.zip
 Flash Player.prefPane:                 j9tmfny7bmlgtm4/install_flash_player_osx.dmg --open
 Flip4Mac WMV.prefPane:                 ld41cypzf8hzuof/Flip4Mac%20WMV%202.4.4.2.dmg
