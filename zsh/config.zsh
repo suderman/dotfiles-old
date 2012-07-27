@@ -12,16 +12,12 @@ export PATH=$PATH:/usr/local/share/npm/bin
 # php path
 export PATH=$PATH:/usr/local/Cellar/php/5.3.10/bin
 
-# MacPorts
-export PATH=$PATH:/opt/local/bin:/opt/local/sbin
-
 # Append original path
 export PATH=$PATH:$ORIGINAL_PATH
 
 # rbenv
 export PATH=$HOME/.rbenv/bin:$PATH
-if command -v "rbenv" &>/dev/null
-then
+if command -v "rbenv" &>/dev/null; then
   export PREFIX=$HOME
   eval "$(rbenv init -)"
   rbenv global 1.9.3-rc1
@@ -42,8 +38,7 @@ zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 
 # Tmux on OS X needs this to access the pasteboard
-if command -v "reattach-to-user-namespace" &>/dev/null
-then
+if command -v "reattach-to-user-namespace" &>/dev/null; then
   export TMUX_DEFAULT_COMMAND="reattach-to-user-namespace -l zsh"
 fi
 
