@@ -112,6 +112,10 @@ Launchpad-Control.prefPane:            jyqrk79gdmxpxiu/Launchpad-Control.zip
 SymbolicLinker.service:                sdk6lbzkygle5jw/SymbolicLinker.dmg
 GlimmerBlocker.prefPane:               ieqqcx5bxsfuta5/GlimmerBlocker.dmg
 CandyBar.app:                          m2tcuo6c40yywbr/CandyBar.zip
+teleport.prefPane:                     rax9rw0gkcowqrq/teleport.zip
+Xmarks.prefPane:
+  use:                                 phrly0bpx29g5wm/Xmarks.dmg
+  run:                                 rm -rf "/Applications/Uninstall Xmarks.app"
 
 
 # ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀
