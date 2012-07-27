@@ -84,9 +84,7 @@ TextWrangler.app:                      7oo4jcqkbfwi1na/TextWrangler_4.0.1.dmg
 # ▀▄▀▄▀▄        Utilities        ▄▀▄▀▄▀
 # ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀
 
-Dropbox.app:
-  use:                                 98shr7bfcuoo39o/Dropbox%201-2.4.7.dmg
-  run:                                 mv -f /Applications/Dropbox.app/Contents/Resources/check.icns /Applications/Dropbox.app/Contents/Resources/check.icns.bak
+Dropbox.app:                           btx7xl9l86z4eyl/Dropbox%201.4.12.dmg
 Growl.app:                             growl/id467939042
 Hiss.app:                              aekouzedxtqv2wj/Hiss.zip
 LogMeIn.app:                           kmtrn8vidwrskse/LogMeIn.zip
@@ -98,6 +96,7 @@ Touvaly.app:                           tfqfa9tc52lyli3/Touvaly.dmg
 autojump:                              brew
 wget:                                  brew
 ack:                                   brew
+dockutil:                              brew suderman/suds
 
 
 # ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀
