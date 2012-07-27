@@ -43,3 +43,6 @@
     net.elasticthreads.nv.plist:                       -> Preferences/net.elasticthreads.nv.plist
     ws.agile.1Password.plist:                          -> Preferences/ws.agile.1Password.plist
 
+
+# Link samba configuration
+/opt/local/etc/samba3/smb.conf: -> ../../.osx/smb.conf
