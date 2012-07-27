@@ -12,6 +12,7 @@ echo ""; read -p "Install OS X apps? [y/n] " yn
 case $yn in
   [Yy]* ) echo ""; echo "Installing apps"
     command -v appstack >/dev/null 2>&1 || { curl https://raw.github.com/suderman/appstack/master/install.sh | sh; }
+    export APP_SOURCE=~/Dropbox/Installers
     appstack ~/.osx/apps.yml
 esac
 
