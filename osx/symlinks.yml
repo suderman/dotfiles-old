@@ -1,45 +1,45 @@
 # Run this from ~/Dropbox/Library
 # cd ~/Dropbox/Library && symlink symlinks.yml
-~/: 
-  Library: 
 
-    Application Support: 
-      Alfred:           -> Application Support/Alfred
-      Choosy:           -> Application Support/Choosy
-      Fluid:            -> Application Support/Fluid
-      HyperDock:        -> Application Support/HyperDock
-      Keyboard Maestro: -> Application Support/Keyboard Maestro
-      Skitch:           -> Application Support/Skitch
-      TextMate:         -> Application Support/TextMate
-      TextWrangler:     -> Application Support/TextWrangler
-      TrackRecord:      -> Application Support/TrackRecord
-      WorldOfGoo:       -> Application Support/WorldOfGoo
+~/Library: 
 
-    Preferences: 
-      com.alfredapp.Alfred.plist:                        -> Preferences/com.alfredapp.Alfred.plist
-      com.barebones.textwrangler.LSSharedFileList.plist: -> Preferences/com.barebones.textwrangler.LSSharedFileList.plist
-      com.barebones.textwrangler.plist:                  -> Preferences/com.barebones.textwrangler.plist
-      com.choosyosx.Choosy.plist:                        -> Preferences/com.choosyosx.Choosy.plist
-      com.choosyosx.ChoosyPrefPane.plist:                -> Preferences/com.choosyosx.ChoosyPrefPane.plist
-      com.droplr.droplr-mac.plist:                       -> Preferences/com.droplr.droplr-mac.plist
-      com.flexibits.fantastical.plist:                   -> Preferences/com.flexibits.fantastical.plist
-      com.fluidapp.Fluid.plist:                          -> Preferences/com.fluidapp.Fluid.plist
-      com.fluidapp.FluidApp.Basecamp.plist:              -> Preferences/com.fluidapp.FluidApp.Basecamp.plist
-      com.fluidapp.FluidApp.Campfire.plist:              -> Preferences/com.fluidapp.FluidApp.Campfire.plist
-      com.fluidapp.FluidApp.GitHub.com.plist:            -> Preferences/com.fluidapp.FluidApp.GitHub.com.plist
-      com.fluidapp.FluidApp.LogMeIn.plist:               -> Preferences/com.fluidapp.FluidApp.LogMeIn.plist
-      com.fluidapp.FluidApp.nonwiki.plist:               -> Preferences/com.fluidapp.FluidApp.nonwiki.plist
-      com.google.code.sequel-pro.plist:                  -> Preferences/com.google.code.sequel-pro.plist
-      com.googlecode.iterm2.plist:                       -> Preferences/com.googlecode.iterm2.plist
-      com.Growl.GrowlHelperApp.plist:                    -> Preferences/com.Growl.GrowlHelperApp.plist
-      com.limit-point.Touvaly.plist:                     -> Preferences/com.limit-point.Touvaly.plist
-      com.panic.Transmit.plist:                          -> Preferences/com.panic.Transmit.plist
-      com.reederapp.mac.plist:                           -> Preferences/com.reederapp.mac.plist
-      com.shinyplasticbag.DragonDrop.plist:              -> Preferences/com.shinyplasticbag.DragonDrop.plist
-      com.skitch.skitch.plist:                           -> Preferences/com.skitch.skitch.plist
-      com.somethinginteresting.TrackRecord.plist:        -> Preferences/com.somethinginteresting.TrackRecord.plist
-      de.bahoom.HyperDock.plist:                         -> Preferences/de.bahoom.HyperDock.plist
-      de.bahoom.HyperDock.prefpane.plist:                -> Preferences/de.bahoom.HyperDock.prefpane.plist
-      net.elasticthreads.nv.plist:                       -> Preferences/net.elasticthreads.nv.plist
-      ws.agile.1Password.plist:                          -> Preferences/ws.agile.1Password.plist
+  Application Support: 
+    Alfred:           -> Application Support/Alfred
+    Choosy:           -> Application Support/Choosy
+    Fluid:            -> Application Support/Fluid
+    HyperDock:        -> Application Support/HyperDock
+    Keyboard Maestro: -> Application Support/Keyboard Maestro
+    Skitch:           -> Application Support/Skitch
+    TextMate:         -> Application Support/TextMate
+    TextWrangler:     -> Application Support/TextWrangler
+    TrackRecord:      -> Application Support/TrackRecord
+    WorldOfGoo:       -> Application Support/WorldOfGoo
+
+  Preferences: 
+    com.alfredapp.Alfred.plist:                        -> Preferences/com.alfredapp.Alfred.plist
+    com.barebones.textwrangler.LSSharedFileList.plist: -> Preferences/com.barebones.textwrangler.LSSharedFileList.plist
+    com.barebones.textwrangler.plist:                  -> Preferences/com.barebones.textwrangler.plist
+    com.choosyosx.Choosy.plist:                        -> Preferences/com.choosyosx.Choosy.plist
+    com.choosyosx.ChoosyPrefPane.plist:                -> Preferences/com.choosyosx.ChoosyPrefPane.plist
+    com.droplr.droplr-mac.plist:                       -> Preferences/com.droplr.droplr-mac.plist
+    com.flexibits.fantastical.plist:                   -> Preferences/com.flexibits.fantastical.plist
+    com.fluidapp.Fluid.plist:                          -> Preferences/com.fluidapp.Fluid.plist
+    com.fluidapp.FluidApp.Basecamp.plist:              -> Preferences/com.fluidapp.FluidApp.Basecamp.plist
+    com.fluidapp.FluidApp.Campfire.plist:              -> Preferences/com.fluidapp.FluidApp.Campfire.plist
+    com.fluidapp.FluidApp.GitHub.com.plist:            -> Preferences/com.fluidapp.FluidApp.GitHub.com.plist
+    com.fluidapp.FluidApp.LogMeIn.plist:               -> Preferences/com.fluidapp.FluidApp.LogMeIn.plist
+    com.fluidapp.FluidApp.nonwiki.plist:               -> Preferences/com.fluidapp.FluidApp.nonwiki.plist
+    com.google.code.sequel-pro.plist:                  -> Preferences/com.google.code.sequel-pro.plist
+    com.googlecode.iterm2.plist:                       -> Preferences/com.googlecode.iterm2.plist
+    com.Growl.GrowlHelperApp.plist:                    -> Preferences/com.Growl.GrowlHelperApp.plist
+    com.limit-point.Touvaly.plist:                     -> Preferences/com.limit-point.Touvaly.plist
+    com.panic.Transmit.plist:                          -> Preferences/com.panic.Transmit.plist
+    com.reederapp.mac.plist:                           -> Preferences/com.reederapp.mac.plist
+    com.shinyplasticbag.DragonDrop.plist:              -> Preferences/com.shinyplasticbag.DragonDrop.plist
+    com.skitch.skitch.plist:                           -> Preferences/com.skitch.skitch.plist
+    com.somethinginteresting.TrackRecord.plist:        -> Preferences/com.somethinginteresting.TrackRecord.plist
+    de.bahoom.HyperDock.plist:                         -> Preferences/de.bahoom.HyperDock.plist
+    de.bahoom.HyperDock.prefpane.plist:                -> Preferences/de.bahoom.HyperDock.prefpane.plist
+    net.elasticthreads.nv.plist:                       -> Preferences/net.elasticthreads.nv.plist
+    ws.agile.1Password.plist:                          -> Preferences/ws.agile.1Password.plist
 
