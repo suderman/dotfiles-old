@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Optional: Install apps can take a long time and require multiple sudo logins.
+# Optional: Installing apps can take a long time and require multiple sudo logins.
 # Run this command: sudo visudo
 # Add this line to the end of the file: Defaults:ALL timestamp_timeout=60
 
