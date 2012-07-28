@@ -14,6 +14,8 @@
     TextWrangler:     -> Application Support/TextWrangler
     TrackRecord:      -> Application Support/TrackRecord
     WorldOfGoo:       -> Application Support/WorldOfGoo
+    SABnzbd: 
+      sabnzbd.ini:    -> Application Support/SABnzbd/sabnzbd.ini
 
   Preferences: 
     com.alfredapp.Alfred.plist:                        -> Preferences/com.alfredapp.Alfred.plist
