@@ -33,6 +33,8 @@ command -v git >/dev/null 2>&1 || {
 if [ ! -d ~/.oh-my-zsh ]; then
 
   OHMYZSH_REPO="git://github.com/robbyrussell/oh-my-zsh.git"
+
+  echo "Installing ~/.oh-my-zsh"
   git clone $OHMYZSH_REPO ~/.oh-my-zsh
 
   # Remove these files/directories because they'll be symlinked from dotfiles
@@ -45,19 +47,21 @@ fi
 if [ ! -d ~/.dotfiles ]; then
 
   # Install dotfiles
-  if [ -d ~/.ssh/id_rsa ]
+  if [ -f ~/.ssh/id_rsa ]
   then DOTFILES_REPO="git@github.com:suderman/dotfiles.git"
   else DOTFILES_REPO="https://suderman@github.com/suderman/dotfiles.git"
   fi
 
+  echo "Installing ~/.dotfiles"
   git clone $DOTFILES_REPO ~/.dotfiles
 
   # Install dotfiles-secure
-  if [ -d ~/.ssh/id_rsa ]
+  if [ -f ~/.ssh/id_rsa ]
   then DOTFILES_REPO="git@github.com:suderman/dotfiles-secure.git"
   else DOTFILES_REPO="https://suderman@github.com/suderman/dotfiles-secure.git"
   fi
 
+  echo "Installing ~/.dotfiles/secure"
   git clone $DOTFILES_REPO ~/.dotfiles/secure
 
   # SSH complains if these files have the wrong permissions
@@ -72,11 +76,15 @@ cd ~/.dotfiles && symlink symlinks.yml
 
 
 # Now that SSH is all set up, update remote origins for password-less pushing
-if [ -d ~/.ssh/id_rsa ]; then
+if [ -f ~/.ssh/id_rsa ]; then
   cd ~/.dotfiles && git remote set-url origin git@github.com:suderman/dotfiles.git
   cd ~/.dotfiles/secure && git remote set-url origin git@github.com:suderman/dotfiles-secure.git
 fi
 
 
 # OS X apps, library and settings
-case $OSTYPE in darwin*) cd ~/.osx && ./osx.sh ;; esac
+case $OSTYPE in darwin*) 
+  osascript -e 'tell app "Terminal"
+  do script "cd ~/.osx && ./osx.sh"
+  end tell'
+;; esac
