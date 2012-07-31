@@ -6,6 +6,7 @@
   Application Support: 
     Alfred:           -> Application Support/Alfred
     Choosy:           -> Application Support/Choosy
+    ControllerMate:   -> Application Support/ControllerMate
     Fluid:            -> Application Support/Fluid
     HyperDock:        -> Application Support/HyperDock
     Keyboard Maestro: -> Application Support/Keyboard Maestro
@@ -44,6 +45,7 @@
     de.bahoom.HyperDock.prefpane.plist:                -> Preferences/de.bahoom.HyperDock.prefpane.plist
     net.elasticthreads.nv.plist:                       -> Preferences/net.elasticthreads.nv.plist
     ws.agile.1Password.plist:                          -> Preferences/ws.agile.1Password.plist
+    com.orderedbytes.ControllerMate4.plist:            -> Preferences/com.orderedbytes.ControllerMate4.plist
 
 
 # Link samba configuration
