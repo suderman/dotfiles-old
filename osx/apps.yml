@@ -161,7 +161,7 @@ PS3 Media Server.app:                  km950ullvag6fhm/PS3-Media-Server.dmg
 SABnzbd.app:                           nqx5isa4igwnodl/SABnzbd.dmg
 sickbeard:
   use:                                 brew
-  pre:                                 easy_install Cheetah
+  pre:                                 sudo easy_install Cheetah
 Transmission.app:                      27re16zvd2cuf3k/Transmission.dmg
 SMBUp.app:                             j1098s8i0jofwmd/SMBUp.zip
 Flash Player.prefPane:                 j9tmfny7bmlgtm4/install_flash_player_osx.dmg --open
