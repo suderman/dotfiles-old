@@ -47,6 +47,6 @@
     ws.agile.1Password.plist:                          -> Preferences/ws.agile.1Password.plist
     com.orderedbytes.ControllerMate4.plist:            -> Preferences/com.orderedbytes.ControllerMate4.plist
 
-
-# Link samba configuration
-/opt/local/etc/samba3/smb.conf: -> ../../.osx/smb.conf
+/usr/local/etc:
+  sickbeard/sickbeard.db: -> etc/sickbeard/sickbeard.db
+  sickbeard/config.ini:   -> etc/sickbeard/config.ini
