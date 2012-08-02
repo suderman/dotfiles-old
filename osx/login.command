@@ -9,4 +9,3 @@ open "/Applications/Fantastical.app"
 open "/Applications/Air Video Server.app"
 open "/Applications/PS3 Media Server.app"
 open "/Applications/SABnzbd.app"
-sickbeard&

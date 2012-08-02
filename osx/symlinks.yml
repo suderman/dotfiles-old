@@ -46,7 +46,3 @@
     net.elasticthreads.nv.plist:                       -> Preferences/net.elasticthreads.nv.plist
     ws.agile.1Password.plist:                          -> Preferences/ws.agile.1Password.plist
     com.orderedbytes.ControllerMate4.plist:            -> Preferences/com.orderedbytes.ControllerMate4.plist
-
-/usr/local/etc:
-  sickbeard/sickbeard.db: -> etc/sickbeard/sickbeard.db
-  sickbeard/config.ini:   -> etc/sickbeard/config.ini

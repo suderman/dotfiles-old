@@ -25,7 +25,7 @@ COMPLETION_WAITING_DOTS="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse compleat)
-plugins=(osx vi-mode extract git brew autojump nyan knife node npm ruby rbenv gem rails3 textmate oncloud zsh-syntax-highlighting zsh-history-substring-search)
+plugins=(osx vi-mode extract git brew autojump nyan knife node npm ruby rbenv gem rails3 textmate oncloud usenet zsh-syntax-highlighting zsh-history-substring-search)
 
 # Which highlighers would you like to load?
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
