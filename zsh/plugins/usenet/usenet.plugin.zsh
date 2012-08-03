@@ -7,18 +7,31 @@
 # mkdir -p /usr/local/usenet && cd /usr/local/usenet
 # git clone git://github.com/sabnzbd/sabnzbd.git
 # git clone git://github.com/midgetspy/Sick-Beard.git
-# git clone git://github.com/RuudBurger/CouchPotato.git
+# git clone git://github.com/RuudBurger/CouchPotatoServer.git
 # git clone git://github.com/rembo10/headphones.git
+
+# location for some folders
+bin=/usr/local/usenet
+etc=$HOME/Dropbox/Library/etc
+
+# How these python apps should be run
+sabnzbd="python $bin/sabnzbd/SABnzbd.py --config-file $etc/sabnzbd/sabnzbd.ini --server 10.0.0.8:8080 --browser 0"
+sickbeard="python $bin/Sick-Beard/SickBeard.py --datadir=$etc/sickbeard --port=8081 --nolaunch"
+couchpotato="python $bin/CouchPotatoServer/CouchPotato.py --data_dir=$etc/couchpotato"
+headphones="python $bin/headphones/Headphones.py --datadir=$etc/headphones --port=8083 --nolaunch"
+
+# Shortcuts to launching these lovely python apps
+alias sabnzbd="$sabnzbd"
+alias sickbeard="$sickbeard"
+alias couchpotato="$couchpotato"
+alias headphones="$headphones"
+
 
 # launch usenet apps inside a tmux session!
 usenet () {
 
   # the name of my usenet tmux session
   sn=usenet
-
-  # location for some folders
-  bin=/usr/local/usenet
-  etc=$HOME/Dropbox/Library/etc
 
   # if the session is already running, just attach to it.
   tmux has-session -t $sn
@@ -34,10 +47,10 @@ usenet () {
   tmux rename-window -t $sn:1 zsh
 
   # Open new windows with usenet apps
-  tmux new-window -t $sn -n sabnzbd     "python $bin/sabnzbd/SABnzbd.py --config-file $etc/sabnzbd/sabnzbd.ini --server localhost:8080 --browser 0; bash -i"
-  tmux new-window -t $sn -n sickbeard   "python $bin/Sick-Beard/SickBeard.py --datadir=$etc/sickbeard --port=8081 --nolaunch; bash -i"
-  tmux new-window -t $sn -n couchpotato "python $bin/CouchPotato/CouchPotato.py --datadir=$etc/couchpotato --port=8082 --nolaunch; bash -i"
-  tmux new-window -t $sn -n headphones  "python $bin/headphones/Headphones.py --datadir=$etc/headphones --port=8083 --nolaunch; bash -i"
+  tmux new-window -t $sn -n sabnzbd     "$sabnzbd; zsh -i"
+  tmux new-window -t $sn -n sickbeard   "$sickbeard; zsh -i"
+  tmux new-window -t $sn -n couchpotato "$couchpotato; zsh -i"
+  tmux new-window -t $sn -n headphones  "$headphones; zsh -i"
 
   # Focus on the first window
   tmux select-window -t $sn:1
