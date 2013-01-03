@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # Install usenet apps
 #
 # cd /tmp && curl http://pypi.python.org/packages/source/C/Cheetah/Cheetah-2.4.4.tar.gz -o cheetah.tar.gz
@@ -28,35 +30,27 @@ alias headphones="$headphones"
 
 
 # launch usenet apps inside a tmux session!
-usenet () {
+sn=usenet
 
-  # the name of my usenet tmux session
-  sn=usenet
+# if the session is already running, just attach to it.
+tmux has-session -t $sn
+if [ $? -eq 0 ]; then
+    echo "Session $sn already exists. Attaching."
+    sleep 1
+    tmux attach -t $sn
+    exit 0;
+fi
 
-  # if the session is already running, just attach to it.
-  tmux has-session -t $sn
-  if [ $? -eq 0 ]; then
-      echo "Session $sn already exists. Attaching."
-      sleep 1
-      tmux attach -t $sn
-      exit 0;
-  fi
+# create a new session and detach from it
+tmux new-session -d -s $sn
+tmux rename-window -t $sn:1 zsh
 
-  # create a new session and detach from it
-  tmux new-session -d -s $sn
-  tmux rename-window -t $sn:1 zsh
+# Open new windows with usenet apps
+tmux new-window -t $sn -n sabnzbd     "$sabnzbd; zsh -i"
+tmux new-window -t $sn -n sickbeard   "$sickbeard; zsh -i"
+tmux new-window -t $sn -n couchpotato "$couchpotato; zsh -i"
+tmux new-window -t $sn -n headphones  "$headphones; zsh -i"
 
-  # Open new windows with usenet apps
-  tmux new-window -t $sn -n sabnzbd     "$sabnzbd; zsh -i"
-  tmux new-window -t $sn -n sickbeard   "$sickbeard; zsh -i"
-  tmux new-window -t $sn -n couchpotato "$couchpotato; zsh -i"
-  tmux new-window -t $sn -n headphones  "$headphones; zsh -i"
-
-  # Focus on the first window
-  tmux select-window -t $sn:1
-  tmux attach -t $sn
-}
-
-# Run it!
-usenet
-
+# Focus on the first window
+tmux select-window -t $sn:1
+tmux attach -t $sn

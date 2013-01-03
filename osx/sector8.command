@@ -12,4 +12,3 @@ open "/Applications/Air Video Server.app"
 open "/Applications/PS3 Media Server.app"
 open "/Applications/Smutefy.app"
 open "/Applications/iTunes.app/Contents/MacOS/iTunesHelper.app"
-usenet
