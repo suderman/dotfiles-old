@@ -47,12 +47,16 @@ imagemagick:
 mysql:
   use:                                 brew
   run:                                 curl https://raw.github.com/gist/3092825/d750359f1f8d00da17d9f47367c4fe98dfa6e179/mysql.sh | sh
+fontforge:
+  use:                                 brew
+  pre:                                 [Xcode.app, XQuartz.app]
 
 
 # ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀
 # ▀▄▀▄▀▄        Dev Apps         ▄▀▄▀▄▀
 # ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀
 
+Xcode.app:                             xcode/id497799835
 iTerm.app:                             h3w62cstpbaqrin/iTerm2.zip
 GitHub.app:                            m8e0lha6hlkhte4/GitHub.zip
 GitHub.com.app:                        i25it8jaqrf2q9h/GitHub.com.zip
@@ -60,6 +64,8 @@ Basecamp.app:                          5zhat5an0iemhd6/Basecamp.zip
 nonwiki.app:                           vfkd661u3sht7ni/nonwiki.zip
 Sequel Pro.app:                        ha9l0orwwlyib4p/Sequel-Pro.dmg
 Transmit.app:                          ph03mcb673p6f7d/Transmit.zip
+CodeKit.app:                           btme15vnff62qd8/codekit.zip
+Kaleidoscope.app:                      v8pesw2lmve3xbx/Kaleidoscope.zip
 MockSmtp.app:                          mocksmtp/id423535515
 TrackRecord 2.app:                     67dr8c3pbyh60qc/TrackRecord2.zip
 Paparazzi!.app:                        m5jj9kvpk8n1goh/Paparazzi!.dmg
@@ -86,11 +92,11 @@ TextWrangler.app:                      t4m62316cc8be06/TextWrangler.dmg
 
 Dropbox.app:                           jmld0avaq2azmcj/Dropbox.dmg
 Growl.app:                             growl/id467939042
-Hiss.app:                              aekouzedxtqv2wj/Hiss.zip
-LogMeIn.app:                           https://secure.logmein.com/central/Central.aspx
+Toolkit.app:                           https://secure.logmein.com/central/Central.aspx
 LogMeIn.com.app:                       hotpm71qgupvlxy/LogMeIn.com.zip
 The Unarchiver.app:                    the-unarchiver/id425424353
 MadCatzCyborgRAT.prefPane:             nstn5qgytsrarl2/CyborgRAT.zip
+Printopia.prefPane:                    srpfdbxx35g35pj/Printopia.zip --open
 OpenDNS Updater.app:                   7yg61t559wb7izc/OpenDNS-Updater.zip
 Touvaly.app:                           tfqfa9tc52lyli3/Touvaly.dmg
 autojump:                              brew
@@ -103,6 +109,7 @@ dockutil:                              brew suderman/suds
 # ▀▄▀▄▀▄         Tweaks          ▄▀▄▀▄▀
 # ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀
 
+Bartender.app:                         uovi5nfdwpr8irg/Bartender.zip
 Keyboard Maestro.app:                  svlmuey0pteytis/Keyboard-Maestro.zip
 HyperDock.prefPane:                    is9nsdccng8oszx/HyperDock.dmg
 Choosy.prefPane:                       4ee57fhcf1z4cu5/Choosy.zip
@@ -113,6 +120,8 @@ SymbolicLinker.service:                sdk6lbzkygle5jw/SymbolicLinker.dmg
 GlimmerBlocker.prefPane:               ieqqcx5bxsfuta5/GlimmerBlocker.dmg
 CandyBar.app:                          m2tcuo6c40yywbr/CandyBar.zip
 teleport.prefPane:                     rax9rw0gkcowqrq/teleport.zip
+Audio Hijack Pro.app:                  tpjd9spgm8wib8i/AudioHijackPro.zip
+Airfoil.app:                           x9cyjfy3h5v829o/Airfoil.zip
 Xmarks.prefPane:
   use:                                 phrly0bpx29g5wm/Xmarks.dmg
   run:                                 rm -rf "/Applications/Uninstall Xmarks.app"
@@ -129,9 +138,10 @@ Fantastical.app:                       dtsc161bqbx2o9p/Fantastical.zip
 Cobook.app:                            cobook/id525225808
 Reeder.app:                            reeder/id439845554
 Twitter.app:                           twitter/id409789998
-Skitch.app:                            skitch/id425955336
+Skitch.app:                            85je871apv58e7a/Skitch.zip
 Droplr.app:                            droplr/id498672703
 iPhoto.app:                            iphoto/id408981381
+Courier.app:                           177g54m71nv1pkn/Courier.zip
 Fluid.app:                             m6gm5iz8zlyrci8/Fluid.zip
 AppCleaner.app:                        w3g60l3pngv5o4e/AppCleaner.zip
 alpine:                                brew
@@ -143,10 +153,12 @@ alpine:                                brew
 
 Scrivener.app:                         djs7ltsaxic1m29/Scrivener.dmg
 Aeon Timeline.app:                     tjes0nk2fg7ekub/AeonTimeline.dmg
+Fission.app:                           0zraqona90eqzua/Fission.zip
 nvALT.app:                             qmudrmuedwkg1op/nvALT.zip
 Microsoft Word.app:                    ncheogj7u0tqd2u/Office-2011.dmg
 Adobe Photoshop CS6.app:               tnzs36orgugn1dv/Photoshop-CS6.dmg --open
 Adobe Fireworks CS6.app:               0pzfhfbik5b6n7k/Fireworks-CS6.dmg --open
+Adobe Illustrator.app:                 wa8zq9gbfg8wohu/Illustrator-CS6.dmg --open
 
 
 # ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀
@@ -156,7 +168,6 @@ Adobe Fireworks CS6.app:               0pzfhfbik5b6n7k/Fireworks-CS6.dmg --open
 AirParrot.app:                         jyp4h8ri4ojyl64/AirParrot.dmg
 Air Video Server.app:                  w2qafl90jqgcbt4/Air-Video-Server.dmg
 HandBrake.app:                         28dn5ek2pxxegid/HandBrake.dmg
-Newzbin2 Client.app:                   5tkqn8wpbq40ual/Newzbin2Client.zip
 PS3 Media Server.app:                  km950ullvag6fhm/PS3-Media-Server.dmg
 SABnzbd.app:                           nqx5isa4igwnodl/SABnzbd.dmg
 sickbeard:
@@ -191,6 +202,8 @@ Smutefy.app:
   use:                                 2qz07v89y2vnk2d/Smutefy.zip
   pre:                                 [Spotify.app, Soundflowerbed.app]
 YouTube to MP3.app:                    4o5zldmvegornsq/YouTubeToMP3.dmg
+MediaHuman YouTube Downloader.app:     b5wmkiwhfg3zawm/YouTubeDownloader.dmg
+Radium.app:                            h9bqoixo2s0vfrk/radium.zip
 
 
 # ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀
