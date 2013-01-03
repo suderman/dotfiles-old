@@ -34,11 +34,11 @@
     com.fluidapp.FluidApp.nonwiki.plist:               -> Preferences/com.fluidapp.FluidApp.nonwiki.plist
     com.google.code.sequel-pro.plist:                  -> Preferences/com.google.code.sequel-pro.plist
     com.googlecode.iterm2.plist:                       -> Preferences/com.googlecode.iterm2.plist
-    com.Growl.GrowlHelperApp.plist:                    -> Preferences/com.Growl.GrowlHelperApp.plist
+    # com.Growl.GrowlHelperApp.plist:                    -> Preferences/com.Growl.GrowlHelperApp.plist
     com.limit-point.Touvaly.plist:                     -> Preferences/com.limit-point.Touvaly.plist
     com.panic.Transmit.plist:                          -> Preferences/com.panic.Transmit.plist
     com.reederapp.mac.plist:                           -> Preferences/com.reederapp.mac.plist
-    com.shinyplasticbag.DragonDrop.plist:              -> Preferences/com.shinyplasticbag.DragonDrop.plist
+    # com.shinyplasticbag.DragonDrop.plist:              -> Preferences/com.shinyplasticbag.DragonDrop.plist
     com.skitch.skitch.plist:                           -> Preferences/com.skitch.skitch.plist
     com.somethinginteresting.TrackRecord.plist:        -> Preferences/com.somethinginteresting.TrackRecord.plist
     de.bahoom.HyperDock.plist:                         -> Preferences/de.bahoom.HyperDock.plist
