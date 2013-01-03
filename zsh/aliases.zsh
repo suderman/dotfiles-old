@@ -27,6 +27,9 @@ alias ql="quick-look"
 # Quick access to dotfiles
 alias dotfiles='cd $HOME/.dotfiles; ls -lh'
 
+# git graph
+alias gg='git log --oneline --abbrev-commit --all --graph --decorate --color'
+
 # bundler laziness
 alias be="bundle exec"
 alias bi="bundle install --path vendor/bundle"
@@ -45,6 +48,9 @@ alias rbg="rbenv global"
 alias rbs="rbenv shell"
 alias rbu="rbenv shell --unset"
 alias rbv="rbenv versions"
+
+# python
+alias server="python -m SimpleHTTPServer"
 
 # nterchange laziness
 alias n="nterchange"
