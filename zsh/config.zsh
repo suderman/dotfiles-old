@@ -23,6 +23,9 @@ if command -v "rbenv" &>/dev/null; then
   rbenv global 1.9.3-rc1
 fi
 
+# https://github.com/sstephenson/ruby-build/issues/193
+export CPPFLAGS=-I/opt/X11/include
+
 # home bin
 export PATH=$HOME/bin:$PATH
 
