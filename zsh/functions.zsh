@@ -110,3 +110,9 @@ function sizetw() {
    fi
    return 1
 }
+
+# add a space to the OS X dock
+function dockspace() {
+  defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'
+  killall Dock
+}
