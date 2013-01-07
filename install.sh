@@ -42,9 +42,12 @@ if [ ! -d ~/.oh-my-zsh ]; then
 
 fi
 
+# Dotfiles directories
+DOTFILES=~/.dotfiles
+SECURE_DOTFILES=$DOTFILES/secure
 
 # Check for and install dotfiles
-if [ ! -d ~/.dotfiles ]; then
+if [ ! -d $DOTFILES ]; then
 
   # Install dotfiles
   if [ -f ~/.ssh/id_rsa ]
@@ -52,42 +55,38 @@ if [ ! -d ~/.dotfiles ]; then
   else DOTFILES_REPO="https://suderman@github.com/suderman/dotfiles.git"
   fi
 
-  echo "Installing ~/.dotfiles"
-  git clone $DOTFILES_REPO ~/.dotfiles
+  echo "Installing $DOTFILES"
+  git clone $DOTFILES_REPO $DOTFILES
 
   # Install dotfiles-secure
-  if [ -f ~/.ssh/id_rsa ]
-  then DOTFILES_REPO="git@github.com:suderman/dotfiles-secure.git"
-  else DOTFILES_REPO="https://suderman@github.com/suderman/dotfiles-secure.git"
-  fi
-
-  echo "Installing ~/.dotfiles/secure"
-  git clone $DOTFILES_REPO ~/.dotfiles/secure
-
-  echo ""; read -p "Remove private key and other sensitive information? [y/n] " yn
+  read -p "Install secure dotfiles (including private key)? [y/n] " yn
   case $yn in
-    [Yy]* ) echo ""; echo "Removing keys from ~/.dotfiles/secure"
-      rm -rf ~/.dotfiles/secure/chef
-      rm -rf ~/.dotfiles/secure/ruby/bridge_keys
-      rm -rf ~/.dotfiles/secure/ssh/id_rsa
-      rm -rf ~/.dotfiles/secure/ssh/id_rsa.pub
+    [Yy]* ) echo ""; 
+
+      if [ -f ~/.ssh/id_rsa ]
+      then DOTFILES_REPO="git@github.com:suderman/dotfiles-secure.git"
+      else DOTFILES_REPO="https://suderman@github.com/suderman/dotfiles-secure.git"
+      fi
+
+      echo "Installing $SECURE_DOTFILES"
+      git clone $DOTFILES_REPO $SECURE_DOTFILES
   esac
 
   # SSH complains if these files have the wrong permissions
-  chmod go-rw ~/.dotfiles/secure/ssh/*
+  chmod go-rw $SECURE_DOTFILES/ssh/*
 
 fi
 
 
 # Check for symlink and create symbolic links
 command -v symlink >/dev/null 2>&1 || { curl https://raw.github.com/suderman/symlink/master/install.sh | sh; }
-cd ~/.dotfiles && symlink symlinks.yml
+cd $DOTFILES && symlink symlinks.yml
 
 
 # Now that SSH is all set up, update remote origins for password-less pushing
 if [ -f ~/.ssh/id_rsa ]; then
-  cd ~/.dotfiles && git remote set-url origin git@github.com:suderman/dotfiles.git
-  cd ~/.dotfiles/secure && git remote set-url origin git@github.com:suderman/dotfiles-secure.git
+  cd $DOTFILES && git remote set-url origin git@github.com:suderman/dotfiles.git
+  cd $SECURE_DOTFILES && git remote set-url origin git@github.com:suderman/dotfiles-secure.git
 fi
 
 
