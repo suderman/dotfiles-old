@@ -56,16 +56,21 @@ if [ ! -d ~/.dotfiles ]; then
   git clone $DOTFILES_REPO ~/.dotfiles
 
   # Install dotfiles-secure
-  echo ""; read -p "Install secure dotfiles (including private key)? [y/n] " yn
+  if [ -f ~/.ssh/id_rsa ]
+  then DOTFILES_REPO="git@github.com:suderman/dotfiles-secure.git"
+  else DOTFILES_REPO="https://suderman@github.com/suderman/dotfiles-secure.git"
+  fi
+
+  echo "Installing ~/.dotfiles/secure"
+  git clone $DOTFILES_REPO ~/.dotfiles/secure
+
+  echo ""; read -p "Remove private key and other sensitive information? [y/n] " yn
   case $yn in
-    [Yy]* ) echo ""; echo "Installing ~/.dotfiles/secure"
-
-      if [ -f ~/.ssh/id_rsa ]
-      then DOTFILES_REPO="git@github.com:suderman/dotfiles-secure.git"
-      else DOTFILES_REPO="https://suderman@github.com/suderman/dotfiles-secure.git"
-      fi
-
-      git clone $DOTFILES_REPO ~/.dotfiles/secure
+    [Yy]* ) echo ""; echo "Removing keys from ~/.dotfiles/secure"
+      rm -rf ~/.dotfiles/secure/chef
+      rm -rf ~/.dotfiles/secure/ruby/bridge_keys
+      rm -rf ~/.dotfiles/secure/ssh/id_rsa
+      rm -rf ~/.dotfiles/secure/ssh/id_rsa.pub
   esac
 
   # SSH complains if these files have the wrong permissions
