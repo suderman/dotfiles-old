@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# 2012 Jon Suderman
+# 2013 Jon Suderman
 # https://github.com/suderman/dotfiles/
 
 # Open a terminal and run this command:
@@ -56,13 +56,17 @@ if [ ! -d ~/.dotfiles ]; then
   git clone $DOTFILES_REPO ~/.dotfiles
 
   # Install dotfiles-secure
-  if [ -f ~/.ssh/id_rsa ]
-  then DOTFILES_REPO="git@github.com:suderman/dotfiles-secure.git"
-  else DOTFILES_REPO="https://suderman@github.com/suderman/dotfiles-secure.git"
-  fi
+  echo ""; read -p "Install secure dotfiles (including private key)? [y/n] " yn
+  case $yn in
+    [Yy]* ) echo ""; echo "Installing ~/.dotfiles/secure"
 
-  echo "Installing ~/.dotfiles/secure"
-  git clone $DOTFILES_REPO ~/.dotfiles/secure
+      if [ -f ~/.ssh/id_rsa ]
+      then DOTFILES_REPO="git@github.com:suderman/dotfiles-secure.git"
+      else DOTFILES_REPO="https://suderman@github.com/suderman/dotfiles-secure.git"
+      fi
+
+      git clone $DOTFILES_REPO ~/.dotfiles/secure
+  esac
 
   # SSH complains if these files have the wrong permissions
   chmod go-rw ~/.dotfiles/secure/ssh/*
