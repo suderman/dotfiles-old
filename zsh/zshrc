@@ -33,3 +33,6 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
+
+# Enable SSH agent forwarding
+zstyle :omz:plugins:ssh-agent agent-forwarding on
