@@ -25,3 +25,4 @@
     id_rsa.pub: -> secure/ssh/id_rsa.pub
   .tmux.conf:   -> tmux/tmux.conf
   .zshrc:       -> zsh/zshrc
+  .lib:         -> ~/Dropbox/Library
