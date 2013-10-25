@@ -1,3 +1,14 @@
+platform=`uname`
+if [[ "$platform" == 'Darwin' ]]; then
+
+  # itunnel usb ports
+  function itunnel() {
+    ~/.osx/itunnel_mux/itnl --lport 20022 --iport 22 2>/dev/null &
+    ~/.osx/itunnel_mux/itnl --lport 20333 --iport 333 2>/dev/null &
+  }
+
+fi
+
 #Automatically do an ls after each cd
 cd() {
   if [ -n "$1" ]; then
@@ -6,6 +17,7 @@ cd() {
     builtin cd ~ && ls
   fi
 }
+
 
 # Convert to from Unicode to ASCII
 fixenc() {
