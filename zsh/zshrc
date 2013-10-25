@@ -36,3 +36,6 @@ source $ZSH/oh-my-zsh.sh
 
 # Enable SSH agent forwarding
 zstyle :omz:plugins:ssh-agent agent-forwarding on
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
