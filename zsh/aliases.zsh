@@ -9,6 +9,11 @@ if [[ "$platform" == 'Darwin' ]]; then
   alias gvim='/Applications/MacVim.app/Contents/MacOS/Vim -g -p'
   alias mvim='/Applications/MacVim.app/Contents/MacOS/Vim -g -p'
 
+  # Remove dupes in Open With
+  alias openwithfix='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user;killall Finder'
+
+  # Restart logmein server
+  alias logmeinfix='/Library/Application\ Support/LogMeIn/preupdate && sudo /Library/Application\ Support/LogMeIn/postupdate'
 fi
 
 # Make these commands ask before clobbering a file. Use -f to override.
