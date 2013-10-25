@@ -6,7 +6,7 @@ export PATH=/usr/local/bin
 export PATH=$PATH:/usr/local/sbin
 
 # node path
-export NODE_PATH="/usr/local/lib/node"
+export NODE_PATH=/usr/local/lib/node_modules
 export PATH=$PATH:/usr/local/share/npm/bin
 
 # php path
@@ -21,6 +21,14 @@ if command -v "rbenv" &>/dev/null; then
   export PREFIX=$HOME
   eval "$(rbenv init -)"
   rbenv global 1.9.3-rc1
+fi
+
+# chruby
+CHRUBY="/usr/local/opt/chruby/share/chruby/chruby.sh"
+if [ -f $CHRUBY ]; then
+  source $CHRUBY
+  # auto-switching
+  source /usr/local/opt/chruby/share/chruby/auto.sh
 fi
 
 # https://github.com/sstephenson/ruby-build/issues/193
