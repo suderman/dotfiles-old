@@ -33,3 +33,8 @@
 	prompt = false
 [merge]
 	tool = Kaleidoscope
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
+[user]
+	name = Jonathan Suderman

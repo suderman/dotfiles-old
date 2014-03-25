@@ -33,7 +33,8 @@ alias ql="quick-look"
 alias dotfiles='cd $HOME/.dotfiles; ls -lh'
 
 # git graph
-alias gg='git log --oneline --abbrev-commit --all --graph --decorate --color'
+# alias gg='git log --graph --abbrev-commit --decorate --all --oneline --color'
+alias gg="git log --graph --abbrev-commit --decorate --all --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'"
 
 # bundler laziness
 alias be="bundle exec"
