@@ -15,20 +15,11 @@ export PATH=$PATH:/usr/local/Cellar/php/5.3.10/bin
 # Append original path
 export PATH=$PATH:$ORIGINAL_PATH
 
-# rbenv
-export PATH=$HOME/.rbenv/bin:$PATH
-if command -v "rbenv" &>/dev/null; then
-  export PREFIX=$HOME
-  eval "$(rbenv init -)"
-  rbenv global 1.9.3-rc1
-fi
-
-# chruby
-CHRUBY="/usr/local/opt/chruby/share/chruby/chruby.sh"
+CHRUBY="/usr/local/share/chruby/chruby.sh"
 if [ -f $CHRUBY ]; then
   source $CHRUBY
   # auto-switching
-  source /usr/local/opt/chruby/share/chruby/auto.sh
+  source /usr/local/share/chruby/auto.sh
 fi
 
 # https://github.com/sstephenson/ruby-build/issues/193
@@ -57,10 +48,6 @@ umask 0002
 # Allow use of CTRL-S and CTRL-Q
 setopt NO_FLOW_CONTROL
 stty -ixon
-
-# gem install lolcommits
-# lolcommits --enable
-export LOLCOMMITS_TRANZLATE=1
 
 # app
 export APP_SOURCE=~/Dropbox/Installers
