@@ -64,3 +64,6 @@ export LOLCOMMITS_TRANZLATE=1
 
 # app
 export APP_SOURCE=~/Dropbox/Installers
+
+# http://direnv.net
+eval "$(direnv hook zsh)"

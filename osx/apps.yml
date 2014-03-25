@@ -33,7 +33,10 @@ git:                                   brew
 tig:                                   brew
 tmux:                                  brew
 reattach-to-user-namespace:            brew
-nginx:                                 brew
+direnv:                                brew
+docker:                                brew
+gitsh:                                 brew thoughtbot/formulae
+rcm:                                   brew thoughtbot/formulae
 sng:                                   npm
 php53:                                 brew --with-mysql --with-cgi josegonzalez/php
 less:                                  npm
