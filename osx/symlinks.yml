@@ -4,6 +4,23 @@
 # Run this file to create these symlinks
 # symlink symlinks.yml
 
+~/Applications:
+  All Apps:           -> /Applications
+
+  Audio:
+    Fission.app:      -> /Applications/Fission.app
+    iTunes.app:       -> /Applications/iTunes.app
+    Radium.app:       -> /Applications/Radium.app
+    Smutefy.app:      -> /Applications/Smutefy.app
+    Spotify.app:      -> /Applications/Spotify.app
+
+  Browsers:
+    Chromium.app:     -> /Applications/Chromium.app
+    Fake.app:         -> /Applications/Fake.app
+    Firefox.app:      -> /Applications/Firefox.app
+    Fluid.app:        -> /Applications/Fluid.app
+    Google Chrome Canary.app: -> /Applications/Google Chrome Canary.app
+    Safari.app:       -> /Applications/Safari.app
 
 # Root Library
 /Library:

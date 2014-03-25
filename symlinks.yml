@@ -26,3 +26,10 @@
   .tmux.conf:   -> tmux/tmux.conf
   .zshrc:       -> zsh/zshrc
   .lib:         -> ~/Dropbox/Library
+  .sleep:       -> osx/sleepwatcher.sleep.sh
+  .wakeup:      -> osx/sleepwatcher.wakeup.sh
+  .api:         -> secure/pi/api.yml
+
+  # code:
+  #   api:
+  #     api.yml   -> secure/pi/api.yml
