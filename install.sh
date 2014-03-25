@@ -70,6 +70,12 @@ if [ ! -d $DOTFILES ]; then
 
       echo "Installing $SECURE_DOTFILES"
       git clone $DOTFILES_REPO $SECURE_DOTFILES
+
+      echo "Installing CLI tool for api"
+      mkdir -p /usr/local/bin
+      cp $SECURE_DOTFILES/bin/api /usr/local/bin/api
+      chmod +x /usr/local/bin/api
+
   esac
 
   # SSH complains if these files have the wrong permissions
