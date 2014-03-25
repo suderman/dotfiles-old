@@ -48,11 +48,6 @@ export VISUAL=vim
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 
-# Tmux on OS X needs this to access the pasteboard
-if command -v "reattach-to-user-namespace" &>/dev/null; then
-  export TMUX_DEFAULT_COMMAND="reattach-to-user-namespace -l zsh"
-fi
-
 # Disable autocorrect
 unsetopt correct_all
 
