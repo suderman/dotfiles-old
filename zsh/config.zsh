@@ -54,3 +54,5 @@ export APP_SOURCE=~/Dropbox/Installers
 
 # http://direnv.net
 eval "$(direnv hook zsh)"
+
+export LC_CTYPE="en_US.UTF-8"
