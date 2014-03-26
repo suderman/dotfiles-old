@@ -1,0 +1,4 @@
+EXCLUDES="README.md LICENSE Brewfile"
+DOTFILES_DIRS="~/.dotfiles ~/.secure-dotfiles"
+# COPY_ALWAYS=weechat/*o
+# EXCLUDES=global-dotfiles:python*
