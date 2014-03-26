@@ -25,6 +25,8 @@
 # Root Library
 /Library:
 
+  LaunchAgents: 
+    local.pbcopy.plist: -> ~/.osx/LaunchAgents/local.pbcopy.plist
   LaunchDaemons: 
     local.backup.plist: -> ~/.osx/LaunchDaemons/local.backup.plist
 
