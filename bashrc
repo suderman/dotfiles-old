@@ -17,14 +17,16 @@ export PATH=$PATH:/opt/local/bin:/opt/local/sbin
 # Append original path
 export PATH=$PATH:$ORIGINAL_PATH
 
-# rbenv
-export PATH=$HOME/.rbenv/bin:$PATH
-if command -v "rbenv" &>/dev/null
-then
-  export PREFIX=$HOME
-  eval "$(rbenv init -)"
-  rbenv global 1.9.2-p290
+# Chruby
+CHRUBY="/usr/local/share/chruby/chruby.sh"
+if [ -f $CHRUBY ]; then
+  source $CHRUBY
+  # auto-switching
+  source /usr/local/share/chruby/auto.sh
 fi
+
+# https://github.com/sstephenson/ruby-build/issues/193
+export CPPFLAGS=-I/opt/X11/include
 
 # home bin
 export PATH=$HOME/bin:$PATH
