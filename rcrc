@@ -1,4 +1,4 @@
-EXCLUDES="README.md LICENSE Brewfile zsh osx"
-DOTFILES_DIRS="~/.dotfiles ~/.secure-dotfiles"
+EXCLUDES="README.md LICENSE Brewfile zsh osx mail pi install.sh symlinks.yml"
+DOTFILES_DIRS="$HOME/.dotfiles $HOME/.dotfiles-secure"
 # COPY_ALWAYS=weechat/*o
 # EXCLUDES=global-dotfiles:python*
