@@ -1,19 +1,22 @@
-# Save original path for the end
-export ORIGINAL_PATH=$PATH
+# relative bin, home bin, home local bin
+export MYPATH=bin:$HOME/bin:$HOME/local/bin
 
-# local bin
-export PATH=/usr/local/bin
-export PATH=$PATH:/usr/local/sbin
+# usr local bin
+export MYPATH=$MYPATH:/usr/local/bin:/usr/local/sbin
 
 # node path
 export NODE_PATH=/usr/local/lib/node_modules
-export PATH=$PATH:/usr/local/share/npm/bin
+export MYPATH=$MYPATH:/usr/local/share/npm/bin
 
 # php path
-export PATH=$PATH:/usr/local/Cellar/php/5.3.10/bin
+export MYPATH=$MYPATH:/usr/local/Cellar/php/5.3.10/bin
 
 # Append original path
-export PATH=$PATH:$ORIGINAL_PATH
+export PATH=$MYPATH:$PATH
+
+# Man path
+export MANPATH="/usr/local/man:$MANPATH"
+
 
 CHRUBY="/usr/local/share/chruby/chruby.sh"
 if [ -f $CHRUBY ]; then
@@ -24,12 +27,6 @@ fi
 
 # https://github.com/sstephenson/ruby-build/issues/193
 export CPPFLAGS=-I/opt/X11/include
-
-# home bin
-export PATH=$HOME/bin:$PATH
-
-# relative bin
-export PATH=bin:$PATH
 
 # use vim as an editor
 export EDITOR=vim
@@ -56,3 +53,4 @@ export APP_SOURCE=~/Dropbox/Installers
 eval "$(direnv hook zsh)"
 
 export LC_CTYPE="en_US.UTF-8"
+
