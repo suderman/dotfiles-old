@@ -15,7 +15,7 @@ export MYPATH=$MYPATH:/usr/local/Cellar/php/5.3.10/bin
 export PATH=$MYPATH:$PATH
 
 # Man path
-export MANPATH="/usr/local/man:$MANPATH"
+export MANPATH="$HOME/local/share:/usr/local/man:$MANPATH"
 
 
 CHRUBY="/usr/local/share/chruby/chruby.sh"

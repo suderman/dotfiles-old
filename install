@@ -6,6 +6,8 @@
 # Open a terminal and run this command:
 # curl https://raw.github.com/suderman/dotfiles/master/install | sh
 
+echo "Installing Jon's dotfiles..."
+
 # Install dotfiles
 curl -sS https://raw.github.com/suderman/install/master/dotfiles | sh
 
@@ -18,6 +20,9 @@ curl -sS https://raw.github.com/suderman/install/master/oh-my-zsh | sh
 # Install rcm to manage the dotfiles
 curl -sS https://raw.github.com/suderman/install/master/rcm | sh
 
+# Update path just in case rcup isn't yet known, and rcup the dotfiles
+export PATH=$HOME/local/bin:/usr/local/bin:$PATH
+rcup -v
+
 echo "Done!"
-echo "Remember to run rcup -v to symlink these dotfiles in your home directory."
 
