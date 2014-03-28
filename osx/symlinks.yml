@@ -27,6 +27,7 @@
 
   LaunchAgents: 
     local.pbcopy.plist: -> ~/.osx/LaunchAgents/local.pbcopy.plist
+    local.pbpaste.plist: -> ~/.osx/LaunchAgents/local.pbpaste.plist
   LaunchDaemons: 
     local.backup.plist: -> ~/.osx/LaunchDaemons/local.backup.plist
 

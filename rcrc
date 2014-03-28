@@ -1,4 +1,4 @@
-EXCLUDES="README.md osx pi install symlinks.yml"
+EXCLUDES="README.md osx pi apache install symlinks.yml"
 DOTFILES_DIRS="$HOME/.dotfiles $HOME/.secret-dotfiles"
 # COPY_ALWAYS=weechat/*o
 # EXCLUDES=global-dotfiles:python*
