@@ -1,5 +1,15 @@
+# -----
+# Path
+# -----
+
 # relative bin, home bin, home local bin
 export MYPATH=bin:$HOME/bin:$HOME/local/bin
+
+# linuxbrew
+if [[ "`uname`" == 'Linux' ]]; then
+  export PATH="$HOME/.linuxbrew/bin:$PATH"
+  export LD_LIBRARY_PATH="$HOME/.linuxbrew/lib:$LD_LIBRARY_PATH"
+fi
 
 # usr local bin
 export MYPATH=$MYPATH:/usr/local/bin:/usr/local/sbin
@@ -18,6 +28,10 @@ export PATH=$MYPATH:$PATH
 export MANPATH="$HOME/local/share:/usr/local/man:$MANPATH"
 
 
+# ------
+# chruby
+# ------
+
 CHRUBY="/usr/local/share/chruby/chruby.sh"
 if [ -f $CHRUBY ]; then
   source $CHRUBY
@@ -27,6 +41,24 @@ fi
 
 # https://github.com/sstephenson/ruby-build/issues/193
 export CPPFLAGS=-I/opt/X11/include
+
+
+# -------------
+# OS X settings
+# -------------
+if [[ "`uname`" == 'Darwin' ]]; then
+
+  # http://direnv.net
+  eval "$(direnv hook zsh)"
+
+  # app
+  export APP_SOURCE=~/Dropbox/Installers
+fi
+
+
+# --------------
+# other settings
+# --------------
 
 # use vim as an editor
 export EDITOR=vim
@@ -46,11 +78,5 @@ umask 0002
 setopt NO_FLOW_CONTROL
 stty -ixon
 
-# app
-export APP_SOURCE=~/Dropbox/Installers
-
-# http://direnv.net
-eval "$(direnv hook zsh)"
-
+# Need this for mosh?
 export LC_CTYPE="en_US.UTF-8"
-
