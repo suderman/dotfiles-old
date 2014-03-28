@@ -1,0 +1,23 @@
+#!/bin/sh
+
+# 2014 Jon Suderman
+# https://github.com/suderman/dotfiles/
+
+# Open a terminal and run this command:
+# curl https://raw.github.com/suderman/dotfiles/master/install.sh | sh
+
+# Install dotfiles
+curl -sS https://raw.github.com/suderman/install/master/dotfiles | sh
+
+# Install secret dotfiles
+curl -sS https://raw.github.com/suderman/install/master/secret-dotfiles | sh
+
+# Install oh-my-zsh
+curl -sS https://raw.github.com/suderman/install/master/oh-my-zsh | sh
+
+# Install rcm to manage the dotfiles
+curl -sS https://raw.github.com/suderman/install/master/rcm | sh
+
+echo "Done!"
+echo "Remember to run rcup -v to symlink these dotfiles in your home directory."
+
