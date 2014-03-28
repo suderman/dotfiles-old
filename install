@@ -4,7 +4,7 @@
 # https://github.com/suderman/dotfiles/
 
 # Open a terminal and run this command:
-# curl https://raw.github.com/suderman/dotfiles/master/install.sh | sh
+# curl https://raw.github.com/suderman/dotfiles/master/install | sh
 
 # Install dotfiles
 curl -sS https://raw.github.com/suderman/install/master/dotfiles | sh
