@@ -22,6 +22,9 @@ set fillchars=vert:│                   " Solid line for vsplit separator
 set showmode                           " show what mode (Insert/Normal/Visual) is currently on
 set timeoutlen=500
 
+
+
+
 " Airline Status Line
 Source https://github.com/bling/vim-airline
 let g:airline_left_sep='' "⮀
@@ -68,11 +71,11 @@ colorscheme hemisu-dark
 call s:Pmenu()
 
 
-" Directories for swp files
+" Directories for undo backup, swp files
+set undofile
+set undodir=~/.vim/backup
 set backupdir=~/.vim/backup
 set directory=~/.vim/backup
-set nobackup
-set nowritebackup
 
 " Remember last location in file
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
