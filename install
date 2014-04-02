@@ -6,23 +6,59 @@
 # Open a terminal and run this command:
 # curl https://raw.github.com/suderman/dotfiles/master/install | sh
 
-echo "Installing Jon's dotfiles..."
+# echo "Installing Jon's dotfiles..."
+#
+# # Install dotfiles
+# curl -sS https://raw.github.com/suderman/install/master/dotfiles | sh
+#
+# # Install secret dotfiles
+# curl -sS https://raw.github.com/suderman/install/master/secret-dotfiles | sh
+#
+# # Install oh-my-zsh
+# curl -sS https://raw.github.com/suderman/install/master/oh-my-zsh | sh
+#
+# # Install rcm to manage the dotfiles
+# curl -sS https://raw.github.com/suderman/install/master/rcm | sh
+#
+# # Update path just in case rcup isn't yet known, and rcup the dotfiles
+# export PATH=$HOME/local/bin:/usr/local/bin:$PATH
+# rcup -v
+#
+# echo "Done!"
 
-# Install dotfiles
-curl -sS https://raw.github.com/suderman/install/master/dotfiles | sh
+#----------------------------------------
+# dotfiles directory
+DOTFILES=$HOME/.dotfiles
 
-# Install secret dotfiles
-curl -sS https://raw.github.com/suderman/install/master/secret-dotfiles | sh
+# Check if the directory exists
+if [ -d $DOTFILES ]; then
 
-# Install oh-my-zsh
-curl -sS https://raw.github.com/suderman/install/master/oh-my-zsh | sh
+  # Now check if it's a git repo
+  if [ -d $DOTFILES/.git ]; then
 
-# Install rcm to manage the dotfiles
-curl -sS https://raw.github.com/suderman/install/master/rcm | sh
+    # It is? Great, let update it!
+    echo "Updating dotfiles..."
+    cd $DOTFILES && git pull
 
-# Update path just in case rcup isn't yet known, and rcup the dotfiles
-export PATH=$HOME/local/bin:/usr/local/bin:$PATH
-rcup -v
+  # It's not? Rename it so we can install this one
+  else
+    echo "Backing up existing $DOTFILES to make room for the new one!"
+    mv -f $DOTFILES $DOTFILES.backup
+  fi
+fi
 
-echo "Done!"
+# Make sure the directory doesn't exist
+if [ ! -d $DOTFILES ]; then
+
+  # Ensure git exists
+  curl -sS https://raw.github.com/suderman/install/master/git | sh
+
+  # Install dotfiles
+  echo "Installing dotfiles"
+  git clone https://github.com/suderman/dotfiles.git $DOTFILES
+
+  # Update remote url for easy updating
+  cd $DOTFILES && git remote set-url origin git@github.com:suderman/dotfiles.git
+
+fi
 
