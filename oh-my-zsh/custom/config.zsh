@@ -2,24 +2,43 @@
 # Path
 # -----
 
-# relative bin, home bin, home local bin
-export MYPATH=bin:$HOME/bin:$HOME/local/bin
+# relative bin
+export MYPATH=bin:$HOME/bin
+
+# Home bin
+if [ -d $HOME/bin ]; then
+  export MYPATH=$MYPATH:$HOME/bin
+fi
+
+# User bin for OS X
+if [ -d $HOME/.osx/bin ]; then
+  export MYPATH=$MYPATH:$HOME/.osx/bin
+fi
+
+# User bin for Linux
+if [ -d $HOME/.linux/bin ]; then
+  export MYPATH=$MYPATH:$HOME/.linux/bin
+fi
 
 # linuxbrew
-if [[ "`uname`" == 'Linux' ]]; then
+if [ -d ~/.linuxbrew ]; then
   export PATH="$HOME/.linuxbrew/bin:$PATH"
   export LD_LIBRARY_PATH="$HOME/.linuxbrew/lib:$LD_LIBRARY_PATH"
 fi
 
-# usr local bin
+# usr local bin (mostly homebrew)
 export MYPATH=$MYPATH:/usr/local/bin:/usr/local/sbin
 
 # node path
-export NODE_PATH=/usr/local/lib/node_modules
-export MYPATH=$MYPATH:/usr/local/share/npm/bin
+if [ -d /usr/local/lib/node_modules ]; then
+  export NODE_PATH=/usr/local/lib/node_modules
+  export MYPATH=$MYPATH:/usr/local/share/npm/bin
+fi
 
 # php path
-export MYPATH=$MYPATH:/usr/local/Cellar/php/5.3.10/bin
+if [ -d /usr/local/Cellar/php/5.3.10/bin ]; then
+  export MYPATH=$MYPATH:/usr/local/Cellar/php/5.3.10/bin
+fi
 
 # Append original path
 export PATH=$MYPATH:$PATH
