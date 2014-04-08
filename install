@@ -41,3 +41,10 @@ if [ ! -d $DOTFILES ]; then
 
 fi
 
+# Install rcm to manage the dotfiles
+curl -sS https://raw.github.com/suderman/install/master/rcm | sh
+
+# Ensure the .rcrc file exists before rcup is run at all
+ln -sf $DOTFILES/rcrc $HOME/.rcrc
+rcup
+
