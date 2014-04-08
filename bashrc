@@ -1,39 +1,36 @@
 # Sometimes scripts call bash instead of my beloved zsh
 # ...so I have to maintain a little bashrc too I guess
 
-# Save original path for the end
-export ORIGINAL_PATH=$PATH
+# Use what I can
+source ~/.dotfiles/zsh/path.zsh
+source ~/.dotfiles/zsh/aliases.zsh
+source ~/.dotfiles/zsh/functions.zsh
 
-# local bin
-export PATH=$PATH:/usr/local/bin
+# Manually set your language environment
+export LANG="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
 
-# node path
-export NODE_PATH="/usr/local/lib/node"
-export PATH=$PATH:/usr/local/share/npm/bin
+# use vim as an editor
+export EDITOR=vim
+export VISUAL=vim
 
-# MacPorts
-export PATH=$PATH:/opt/local/bin:/opt/local/sbin
+# umask permissions
+umask 0002
 
-# Append original path
-export PATH=$PATH:$ORIGINAL_PATH
+#--------------------
+# Other Configuration
+#--------------------
 
-# Chruby
+# http://direnv.net
+eval "$(direnv hook bash)" 
+
+# chruby
 CHRUBY="/usr/local/share/chruby/chruby.sh"
 if [ -f $CHRUBY ]; then
   source $CHRUBY
   # auto-switching
   source /usr/local/share/chruby/auto.sh
+  # https://github.com/sstephenson/ruby-build/issues/193
+  export CPPFLAGS=-I/opt/X11/include
 fi
 
-# https://github.com/sstephenson/ruby-build/issues/193
-export CPPFLAGS=-I/opt/X11/include
-
-# home bin
-export PATH=$HOME/bin:$PATH
-
-# relative bin
-export PATH=bin:$PATH
-
-# use vim as an editor
-export EDITOR=vim
-export VISUAL=vim
