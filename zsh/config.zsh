@@ -45,6 +45,13 @@ stty -ixon
   export ONEPASSWORD_KEYCHAIN="$HOME/Dropbox/Library/1Password.agilekeychain"
 }
 
+# https://github.com/jimeh/tmuxifier
+! command -v tmuxifier >/dev/null 2>&1 || { 
+  export TMUXIFIER_LAYOUT_PATH="$HOME/.dotfiles/tmux/layouts"
+  # export TMUXIFIER_TMUX_OPTS="-L my-awesome-socket-name"
+  eval "$(tmuxifier init -)"
+}
+
 # chruby
 CHRUBY="/usr/local/share/chruby/chruby.sh"
 if [ -f $CHRUBY ]; then

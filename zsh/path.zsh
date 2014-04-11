@@ -21,12 +21,17 @@ fi
 
 # linuxbrew
 if [ -d ~/.linuxbrew ]; then
-  export PATH="$HOME/.linuxbrew/bin:$PATH"
+  export MYPATH="$MYPATH:$HOME/.linuxbrew/bin"
   export LD_LIBRARY_PATH="$HOME/.linuxbrew/lib:$LD_LIBRARY_PATH"
 fi
 
 # usr local bin (mostly homebrew)
 export MYPATH="$MYPATH:/usr/local/bin:/usr/local/sbin"
+
+# tmuxifier
+if [ -d ~/.tmuxifier ]; then
+  export MYPATH="$MYPATH:$HOME/.tmuxifier/bin"
+fi
 
 # node path
 if [ -d /usr/local/lib/node_modules ]; then
