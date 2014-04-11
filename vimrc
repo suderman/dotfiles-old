@@ -432,6 +432,7 @@ autocmd User fugitive
   \   nnoremap <buffer> .. :edit %:h<CR> |
   \ endif
 Source https://github.com/gregsexton/gitv
+let g:Gitv_DoNotMapCtrlKey = 1
 
 " Change working directory to root when a project is dectected (triggered when opening a file)
 Source https://github.com/airblade/vim-rooter
@@ -465,6 +466,12 @@ let NERDTreeMinimalUI=1
 let NERDTreeShowHidden=1
 
 "============="
+
+" Folds
+" set foldmethod=indent   "fold based on indent
+" set foldnestmax=10      "deepest fold is 10 levels
+" au BufWinEnter * let &foldlevel = max(map(range(1, line('$')), 'foldlevel(v:val)'))
+
 
 " Filetypes and Syntax
 "---------------------

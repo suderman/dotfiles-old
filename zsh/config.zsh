@@ -36,6 +36,15 @@ stty -ixon
   eval "$(direnv hook zsh)" 
 }
 
+# https://github.com/georgebrock/1pass
+! command -v 1pass >/dev/null 2>&1 || { 
+  # export CFLAGS=-Qunused-arguments
+  # export CPPFLAGS=-Qunused-arguments
+  # sudo -E easy_install pip
+  # sudo -E pip install 1pass
+  export ONEPASSWORD_KEYCHAIN="$HOME/Dropbox/Library/1Password.agilekeychain"
+}
+
 # chruby
 CHRUBY="/usr/local/share/chruby/chruby.sh"
 if [ -f $CHRUBY ]; then
