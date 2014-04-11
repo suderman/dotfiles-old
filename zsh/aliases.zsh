@@ -10,11 +10,6 @@ alias mv="mv -i"
 alias du="du -h"
 alias df="df -h"
 
-# requires osx plugin
-! command -v qlmanage >/dev/null 2>&1 || { 
-  alias ql="quick-look"
-}
-
 # Quick access to dotfiles
 alias dotfiles='cd $HOME/.dotfiles; ls -lh'
 
