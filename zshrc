@@ -56,4 +56,5 @@ source ~/.dotfiles/zsh/path.zsh
 source ~/.dotfiles/zsh/config.zsh
 source ~/.dotfiles/zsh/aliases.zsh
 source ~/.dotfiles/zsh/functions.zsh
+source ~/.dotfiles/zsh/fzf.zsh
 
