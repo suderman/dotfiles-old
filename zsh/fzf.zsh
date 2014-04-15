@@ -1,6 +1,7 @@
 # find the fzfdir (only os x right now)
-cd $(dirname /usr/local/bin/$(readlink /usr/local/bin/fzf))/..
-fzfdir=$(pwd) && cd -
+# cd $(dirname /usr/local/bin/$(readlink /usr/local/bin/fzf))/..
+# fzfdir=$(pwd) && cd -
+fzfdir=/usr/local/Cellar/fzf/0.8.3
 
 # Setup fzf function
 # ------------------

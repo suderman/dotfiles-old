@@ -1,6 +1,22 @@
 # 2014 Jon Suderman
 # https://github.com/suderman/dotfiles/
 
+# Change directory using ranger
+function ranger-cd() {
+  tempfile='/tmp/chosendir'
+  ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+  test -f "$tempfile" &&
+  if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
+      cd -- "$(cat "$tempfile")"
+  fi
+  rm -f -- "$tempfile"
+}
+
+# This binds Ctrl-O to ranger-cd:
+zle -N ranger-cd
+bindkey '^o' ranger-cd
+
+
 # Automatically do an ls after each cd
 cd() {
   if [ -n "$1" ]; then
