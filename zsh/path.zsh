@@ -19,6 +19,11 @@ if [ -d $HOME/.linux/bin ]; then
   export MYPATH="$MYPATH:$HOME/.linux/bin"
 fi
 
+# vim bin
+if [ -d $HOME/.vim/bin ]; then
+  export MYPATH="$MYPATH:$HOME/.vim/bin"
+fi
+
 # linuxbrew
 if [ -d ~/.linuxbrew ]; then
   export MYPATH="$MYPATH:$HOME/.linuxbrew/bin"

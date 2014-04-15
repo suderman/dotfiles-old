@@ -1,0 +1,53 @@
+#!/bin/zsh
+
+# where vim and tmux should be
+vim="/usr/local/bin/vim"
+tmux="/usr/local/bin/tmux"
+
+# if clientserver isn't active, go straight to vim
+if [[ $($vim -h | grep serverlist) == "" ]]; then
+
+  # fire up vim
+  if [[ $# == 0 ]]; then
+    $vim .
+  else
+    $vim "$@"
+  fi
+
+# if clientserver exists, we're getting fancy...
+else
+
+  # get the name of this vim server from the pwd
+  servername=$(echo $(basename $(pwd)) | tr "[:lower:]" "[:upper:]")
+
+  # keep track of where vimserver is only if tmux is active
+  if [[ $TMUX != "" ]]; then
+
+    # Make sure this hash exists
+    typeset -A vimservers
+    db="$HOME/.vimservers"
+    if [[ -f $db ]]; then
+      source $db
+    fi
+
+    # vim server exists; go to it
+    if [[ $($vim --serverlist) == *$servername* ]]; then
+
+      $tmux switch-client -t $vimservers[$servername]
+
+    # vim server doesn't exist; make it
+    else
+      vimservers[$servername]="$(tmux display-message -p '#S:#I.#P')"
+      echo "vimservers=(${(kv)vimservers})" >| $db
+
+    fi
+  fi
+
+  # fire up vim
+  if [[ $# == 0 ]]; then
+    $vim --servername $servername .
+  else
+    $vim --servername $servername --remote-tab-silent "$@"
+  fi
+
+fi
