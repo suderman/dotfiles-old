@@ -44,18 +44,14 @@ if [ -d /usr/local/lib/node_modules ]; then
   export MYPATH="$MYPATH:/usr/local/share/npm/bin"
 fi
 
-# PHP path
-if [ -d /usr/local/Cellar/php/5.3.10/bin ]; then
-  export MYPATH="$MYPATH:/usr/local/Cellar/php/5.3.10/bin"
-fi
-
 # Heroku Toolbelt
 if [ -d /usr/local/heroku/bin ]; then
   export MYPATH="$MYPATH:/usr/local/heroku/bin"
 fi
 
-# Append original path
-export PATH="$MYPATH:$PATH"
+# Append original path and strip duplicates
+PATH="$MYPATH:$PATH"
+export PATH="$(printf "%s" "${PATH}" | /usr/bin/awk -v RS=: -v ORS=: '!($0 in a) {a[$0]; print}')"
 
 # Man path
 export MANPATH="$HOME/local/share:/usr/local/man:$MANPATH"
