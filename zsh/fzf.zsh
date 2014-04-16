@@ -1,19 +1,17 @@
-# find the fzfdir (only os x right now)
-# cd $(dirname /usr/local/bin/$(readlink /usr/local/bin/fzf))/..
-# fzfdir=$(pwd) && cd -
-fzfdir=/usr/local/Cellar/fzf/0.8.3
+# find the keg
+keg="$(brew --prefix)/Library/LinkedKegs/fzf"
 
 # Setup fzf function
 # ------------------
 unalias fzf 2> /dev/null
 fzf() {
-  /usr/bin/ruby --disable-gems $fzfdir/fzf "$@"
+  /usr/bin/ruby --disable-gems $keg/fzf "$@"
 }
 export -f fzf > /dev/null
 
 # Auto-completion
 # ---------------
-[[ $- =~ i ]] && source $fzfdir/fzf-completion.zsh
+[[ $- =~ i ]] && source $keg/fzf-completion.zsh
 
 # Key bindings
 # ------------
