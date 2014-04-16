@@ -113,7 +113,13 @@ nmap <leader>6 <C-^>
 nmap <leader>^ <C-^>
 
 " Use OS X clipboard
-set clipboard=unnamed
+if has("clipboard")
+  set clipboard=unnamed " copy to the system clipboard
+  if has("unnamedplus") " X11 support
+    set clipboard+=unnamedplus
+  endif
+endif
+
 
 "============="
 " https://gist.github.com/burke/5960455
@@ -147,6 +153,10 @@ set noequalalways
 
 " Tmux Navigator - Smart way to move between splits. Ctrl-[h,j,k,l]
 Source https://github.com/christoomey/vim-tmux-navigator
+
+" Vimux - send commands to tmux panes from vim
+Source https://github.com/benmills/vimux
+map <leader>g :call VimuxRunCommand("git status")<CR>
 
 " If in Visual Mode, resize window instead of changing focus. Ctrl-[h,j,k,l]
 vmap <C-j> <C-W>+
