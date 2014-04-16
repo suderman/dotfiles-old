@@ -11,7 +11,7 @@ split_h 60
 split_h 30
 
 # Vim
-run_cmd "vim -c 'colorscheme solarized | Gstatus' Gemfile" 1
+run_cmd "v -c 'colorscheme solarized' Gemfile" 1
 send_keys ",d" 1
 
 # Command line
