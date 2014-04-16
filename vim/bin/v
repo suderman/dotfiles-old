@@ -1,14 +1,71 @@
 #!/bin/zsh
 
+# 2014 Jon Suderman
+# https://github.com/suderman/dotfiles/
+
 # where vim and tmux should be
 vim="/usr/local/bin/vim"
 tmux="/usr/local/bin/tmux"
 
+# process args
+files=()
+args=()
+arg_is_servername=0
+servername=""
+arg_is_cmd=0
+cmd=""
+
+for arg in "$@"; do
+
+  # catch any explicit --servername args
+  if [[ $arg_is_servername == 1 ]]; then
+    servername=$arg
+    arg_is_servername=0
+
+  # catch any -c commands
+  elif [[ $arg_is_cmd == 1 ]]; then
+    cmd=$arg
+    arg_is_cmd=0
+  else
+
+    # if the arg is --servername, the next one will be the servername
+    if [[ $arg == "--servername" ]]; then
+      arg_is_servername=1
+
+    # if the arg is -c, the next one will be a -c command
+    elif [[ $arg == "-c" ]]; then
+      arg_is_cmd=1
+
+    # catch arguments that are a single hyphen
+    elif [[ $arg == "-" ]]; then
+
+    # catch arguments that are a double hyphen
+    elif [[ $arg == "--" ]]; then
+
+    # catch other arguments that start with a hyphen
+    elif [[ $arg == "-"* ]]; then
+      args+=($arg)
+
+    # otherwise, it's a file to open
+    else 
+      files+=($arg) 
+    fi
+
+  fi
+done
+
+# if there's no files, edit a blank "new" file 
+if [[ ${#files} == 0 ]]; then
+  files+=("new")
+fi
+
 # if clientserver exists, we're getting fancy...
 if [[ $($vim -h | grep serverlist) != "" ]]; then
 
-  # get the name of this vim server from the pwd
-  servername=$(echo $(basename $(pwd)) | tr "[:lower:]" "[:upper:]")
+  # unless set, get the name of this vim server from the pwd
+  if [[ $servername == "" ]]; then
+    servername=$(echo $(basename $(pwd)) | tr "[:lower:]" "[:upper:]")
+  fi
 
   # keep track of where vim server is only if tmux is active
   if [[ $TMUX != "" ]]; then
@@ -41,47 +98,6 @@ if [[ $($vim -h | grep serverlist) != "" ]]; then
   fi
 fi
 
-# process args
-arg_is_cmd=0
-cmd=""
-files=()
-args=()
-
-for arg in "$@"; do
-
-  # catch any -c commands
-  if [[ $arg_is_cmd == 1 ]]; then
-    cmd=$arg
-    arg_is_cmd=0
-  else
-
-    # if the arg is -c, the next one will be a -c command
-    if [[ $arg == "-c" ]]; then
-      arg_is_cmd=1
-
-    # catch arguments that are a single hyphen
-    elif [[ $arg == "-" ]]; then
-
-    # catch arguments that are a double hyphen
-    elif [[ $arg == "--" ]]; then
-
-    # catch other arguments that start with a hyphen
-    elif [[ $arg == "-"* ]]; then
-      args+=($arg)
-
-    # otherwise, it's a file to open
-    else 
-      files+=($arg) 
-    fi
-
-  fi
-done
-
-# if there's no files, edit a blank "new" file 
-if [[ ${#files} == 0 ]]; then
-  files+=("new")
-fi
-
 # fire up vim
 if [[ $servername != "" ]]; then
 
@@ -96,4 +112,7 @@ else
   # open files in vim tabs without a vim server
   $vim -c "$cmd" $args -p $files
 fi
+
+# reset the pane title when exiting vim
+printf '\033]2;sh\033\\'
 
