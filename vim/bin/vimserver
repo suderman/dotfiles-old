@@ -3,20 +3,15 @@
 # 2014 Jon Suderman
 # https://github.com/suderman/dotfiles/
 
-v=$HOME/.vim/bin/v
-vim=/usr/local/bin/vim
 name=VIM
 
 # create new session if needed
 if (! tmux has-session -t $name 2> /dev/null); then
-  TMUX= tmux new -d -s $name
-fi
+  TMUX= tmux new -d -s $name "vimserver-window $@"
 
-# create new window if needed
-if [[ ! $($vim --serverlist) == *$name* ]]; then
-  tmux new-window -n $name -t $name "$v --servername $name"
+  # switch to the new session
+  tmux switch-client -t $name
+
+else
+  vimserver-window $@
 fi
-  
-# open all the files
-$v --servername $name "$1" "$2" "$3" "$4" "$5" "$6" "$7" "$8" "$9"
-# $v --servername $name "~/.vimrc" "~/.tmux.conf"

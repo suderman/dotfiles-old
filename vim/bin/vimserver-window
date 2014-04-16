@@ -1,0 +1,22 @@
+#!/bin/zsh
+#
+# 2014 Jon Suderman
+# https://github.com/suderman/dotfiles/
+
+vim=/usr/local/bin/vim
+name=VIM
+
+# create new window if needed
+if (! tmux list-windows -t $name -F '#{window_name}' |grep "^$name\$" >/dev/null); then
+
+  # kill existing vim server if exists
+  if [[ $($vim --serverlist) == *$name* ]]; then
+    $vim --servername $name --remote-send '<Esc>:wqa<CR>'
+  fi
+
+  # create new vim server in new window
+  tmux new-window -n $name -t $name "vimserver-pane $@"
+
+else
+  vimserver-pane $@
+fi

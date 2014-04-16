@@ -1,0 +1,9 @@
+#!/bin/zsh
+#
+# 2014 Jon Suderman
+# https://github.com/suderman/dotfiles/
+
+name=VIM
+
+# open all the files
+$HOME/.vim/bin/v --servername $name "$1" "$2" "$3" "$4" "$5" "$6" "$7" "$8" "$9"
