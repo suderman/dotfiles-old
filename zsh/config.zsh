@@ -13,9 +13,9 @@ export LC_CTYPE="en_US.UTF-8"
 export EDITOR=vim
 export VISUAL=vim
 
-# Edit long commands in vim ('v' in normal mode)
-zle -N edit-command-line
-bindkey -M vicmd v edit-command-line
+# vi mode
+bindkey -v
+KEYTIMEOUT=1
 
 # Disable autocorrect
 unsetopt correct_all
@@ -26,6 +26,9 @@ umask 0002
 # Allow use of CTRL-S and CTRL-Q
 setopt NO_FLOW_CONTROL
 stty -ixon
+
+# Enable SSH agent forwarding
+zstyle :omz:plugins:ssh-agent agent-forwarding on
 
 #--------------------
 # Other Configuration

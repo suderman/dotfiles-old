@@ -4,12 +4,17 @@
 # Change directory using ranger
 function ranger-cd() {
   tempfile='/tmp/chosendir'
-  ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+  ranger --choosedir="$tempfile" "${@:-$(pwd)}" < $TTY
   test -f "$tempfile" &&
   if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
       cd -- "$(cat "$tempfile")"
   fi
   rm -f -- "$tempfile"
+  ls -lah
+}
+ranger-cd-wrapper() {
+  ranger-cd
+  ls -lah
 }
 
 # This binds Ctrl-O to ranger-cd:
@@ -17,14 +22,14 @@ zle -N ranger-cd
 bindkey '^o' ranger-cd
 
 
-# Automatically do an ls after each cd
-cd() {
-  if [ -n "$1" ]; then
-    builtin cd "$@" && ls
-  else
-    builtin cd ~ && ls
-  fi
-}
+# # Automatically do an ls after each cd
+# cd() {
+#   if [ -n "$1" ]; then
+#     builtin cd "$@" && ls
+#   else
+#     builtin cd ~ && ls
+#   fi
+# }
 
 # Change group to nonfiction and fix permissions
 fixperm() {

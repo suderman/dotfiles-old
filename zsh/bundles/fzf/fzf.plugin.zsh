@@ -1,5 +1,6 @@
 # find the keg
 keg="$(brew --prefix)/Library/LinkedKegs/fzf"
+this=${0}
 
 # Setup fzf function
 # ------------------
@@ -38,7 +39,7 @@ if [ -n "$TMUX_PANE" -a ${FZF_TMUX:-1} -ne 0 -a ${LINES:-40} -gt 15 ]; then
     else
       height="-l $height"
     fi
-    tmux split-window $height "zsh -c 'source ~/.fzf.zsh; tmux send-keys -t $TMUX_PANE \"\$(__fsel)\"'"
+    tmux split-window $height "zsh -c 'source $this; tmux send-keys -t $TMUX_PANE \"\$(__fsel)\"'"
   }
 else
   fzf-file-widget() {
