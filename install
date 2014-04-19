@@ -1,0 +1,50 @@
+#!/bin/sh
+
+# 2014 Jon Suderman
+# https://github.com/suderman/dotfiles/
+
+# Open a terminal and run this command:
+# curl https://raw.github.com/suderman/dotfiles/master/install | sh
+
+# dotfiles directory
+DOTFILES=$HOME/.dotfiles
+
+# Check if the directory exists
+if [ -d $DOTFILES ]; then
+
+  # Now check if it's a git repo
+  if [ -d $DOTFILES/.git ]; then
+
+    # It is? Great, let update it!
+    echo "Updating dotfiles..."
+    cd $DOTFILES && git pull
+
+  # It's not? Rename it so we can install this one
+  else
+    echo "Backing up existing $DOTFILES to make room for the new one!"
+    mv -f $DOTFILES $DOTFILES.backup
+  fi
+fi
+
+# Make sure the directory doesn't exist
+if [ ! -d $DOTFILES ]; then
+
+  # Ensure git exists
+  curl -sS install.suderman.io/git | sh
+
+  # Install dotfiles
+  echo "Installing dotfiles"
+  git clone https://github.com/suderman/dotfiles.git $DOTFILES
+
+  # Update remote url for easy updating
+  cd $DOTFILES && git remote set-url origin git@github.com:suderman/dotfiles.git
+
+fi
+
+# Install rcm to manage the dotfiles
+curl -sS install.suderman.io/rcm | sh
+
+# Ensure the .rcrc file exists before rcup is run at all
+ln -sf $DOTFILES/rcrc $HOME/.rcrc
+rcup
+
